@@ -1,0 +1,20 @@
+.header{ 
+    background-Size: cover;
+    background-Position: center;
+    height: 500px;
+    border-Radius: 10px;
+  }
+  
+  .display-4{
+    color: rgb(253, 251, 247);
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.123);
+  }
+
+  p{
+    color:rgb(10, 10, 10);
+  }
+
+  .d-flex{
+    margin-bottom: 30px;
+  }
