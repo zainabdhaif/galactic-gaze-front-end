@@ -10,8 +10,12 @@ const EventDetails = (props) => {
 
   useEffect(() => {
     async function getEvent() {
-      const eventData = await eventService.show(eventId);
-      setEvent(eventData);
+      try {
+        const eventData = await eventService.show(eventId);
+        setEvent(eventData);
+      } catch (error) {
+        console.error("Error fetching event data:", error);
+      }
     }
     getEvent();
   }, [eventId]);
@@ -21,28 +25,51 @@ const EventDetails = (props) => {
   }
 
   return (
+    
     <main className="container mt-4">
-      <header
-        className="header mb-4"
-        style={{ 
-          backgroundImage: `url(${event.image})`
-        }}
-      >
+      <h1 className="display-4">{event.name}</h1>
+      
+      <header className="header mb-4">
+        
         <div className="cover">
-          <h1 className="display-4">{event.name}</h1>
+      
+            <video 
+              className="event-video"
+              src={event.video} 
+              autoPlay 
+              muted 
+              loop 
+              playsInline 
+              style={{ width: '100%', height: '300px', objectFit: 'cover' }}
+            />
+        
         </div>
       </header>
 
       <div className="row mb-4">
         <div className="col-md-8">
-          <p className="text-muted">Date & Time: {new Date(event.datetime).toLocaleString()}</p>
+    
+          <p>Date & Time: {new Date(event.datetime).toLocaleString()}</p>
           <p>{event.description}</p>
           <p>Location: {event.location}</p>
           <p>Coordinates: {event.coordinates}</p>
-
         </div>
       </div>
 
+      <div className="d-flex justify-content-between">
+        <button
+          className="btn btn-primary mt-3"
+          onClick={() => navigate(`/events/${eventId}/edit`)}
+        >
+          Edit
+        </button>
+        <button
+          className="btn btn-danger mt-3"
+          onClick={() => props.handleRemoveEvent(eventId)}
+        >
+          Delete
+        </button>
+      </div>
     </main>
   );
 };

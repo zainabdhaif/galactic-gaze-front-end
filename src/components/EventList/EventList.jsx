@@ -31,12 +31,13 @@ const EventList = () => {
           Your browser does not support the video tag.
         </video>
       </div>
+      <hr />
       
-      <h1 className="mb-4">Latest News on Astronomy and Sky Watching</h1>
-      <p className="mb-4 text-white">
+      <h1 className="mb-4 head">Latest News on Astronomy and Sky Watching</h1>
+      <p className="mb-4 text-white para">
         Never miss an exciting event in the night sky with the Star Walk space news — your online guide to the latest astronomy events and celestial bodies visible tonight. Find out how and when to observe meteor showers, solar and lunar eclipses, Starlink satellites, planetary events, comets, and more. Learn the astronomy terms, see stargazing forecasts for Northern and Southern Hemispheres, and get observation tips.
       </p>
-      
+      <hr />
       
       <div className="card-group">
         {events.map((event) => (
@@ -49,11 +50,10 @@ const EventList = () => {
             <div className="card-img-body" style={{ backgroundImage: `url(${event.image})` }}>
               <div className="card-overlay">
                 <div className="card-body">
-                  <h4 className="card-title">{event.name}</h4>
+                  <h5 className="card-title">{event.name}</h5>
                   <p className="card-text">
-                    <small className="text-muted">
-                      {new Date(event.datetime).toLocaleDateString()} - 
-                      {new Date(event.datetime).toLocaleTimeString()}
+                    <small>
+                      {new Date(event.datetime).toLocaleDateString()}
                     </small>
                   </p>
                 </div>

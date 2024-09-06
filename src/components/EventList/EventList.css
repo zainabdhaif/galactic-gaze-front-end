@@ -4,6 +4,7 @@
   position: relative;
   overflow: hidden;
   margin-bottom: 1rem;
+ 
 }
 
 .video {
@@ -13,6 +14,13 @@
   object-fit: cover;
 }
 
+.head{
+  padding-top: 50px;
+}
+
+.para{
+  padding-bottom: 80px;
+}
 .card-group {
   display: flex;
   flex-wrap: wrap;
@@ -33,6 +41,12 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  border-radius: 9px;
+  border: 1px solid #9e74bd;
+}
+
+hr{
+  color:#8e44ad;
 }
 
 .card-overlay {
@@ -53,7 +67,7 @@
 }
 
 .card-title, .card-text, .btn {
-  color: #fff; 
+  color: #ffffff8e; 
 }
 
 .btn-outline-primary {
