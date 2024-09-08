@@ -68,7 +68,6 @@ const EventEdit = () => {
     <div className="form-background">
     <h3 className="event">Edit Event</h3>
     <video className="background-video" src="https://cdn.pixabay.com/video/2022/07/06/123311-727474301_large.mp4" autoPlay muted loop>
-      {/* <source type="video/mp4" /> */}
       Your browser does not support the video tag.
     </video>
     <main className="container-form text-white mt-4">
