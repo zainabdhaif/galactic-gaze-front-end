@@ -10,6 +10,8 @@ import Dashboard from './components/Dashboard/Dashboard';
 import SignupForm from './components/SignupForm/SignupForm';
 import SigninForm from './components/SigninForm/SigninForm';
 import Footer from './components/Footer/Footer';
+import MeetupList from './components/MeetupList/MeetupList'
+import MeetupForm from './components/MeetupForm/MeetupForm';
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser());
@@ -25,13 +27,18 @@ const App = () => {
       <main className="flex-grow-1">
         <Routes>
           { user ? (
-            <Route path="/" element={<Dashboard user={user} />} />
-            
+            <>
+              <Route path="/" element={<Dashboard user={user} />} />
+              {user.type === "club" ? (
+                <Route path='/meetups/:id' element={<MeetupForm />} />
+              ) : null}
+            </>         
           ) : (
             <Route path="/" element={<Dashboard/>} />
           )}
           <Route path="/signup" element={<SignupForm setUser={setUser}/>} />
           <Route path="/signin" element={<SigninForm setUser={setUser}/>} />
+          <Route path="/meetups" element={<MeetupList/>} />
         </Routes>
       </main>
       <Footer />
