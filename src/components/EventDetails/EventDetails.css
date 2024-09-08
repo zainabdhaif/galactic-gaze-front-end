@@ -1,0 +1,51 @@
+.header { 
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  border-radius: 10px;
+}
+
+.display-4 {
+  color: #fdfbf7;
+  text-align: center;
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 10; 
+  position: relative; 
+}
+
+
+
+
+.d-flex {
+  margin-bottom: 30px;
+}
+
+
+.btn-primary {
+  background-color: #6a0dad; 
+  border-color: #6a0dad;
+}
+
+.btn-primary:hover {
+  background-color: #8a2be2;
+  border-color: #8a2be2;
+}
+
+.btn-danger {
+  background-color: #8b0000; 
+  border-color: #8b0000;
+}
+
+.btn-danger:hover {
+  background-color: #b22222;
+  border-color: #b22222;
+}
+
+
+.cover {
+  background-color: rgba(0, 0, 0, 0.7); 
+  border-radius: 10px;
+  padding: 20px;
+}
+
