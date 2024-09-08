@@ -55,7 +55,7 @@ const EventDetails = (props) => {
           <p>Coordinates: {event.coordinates}</p>
         </div>
       </div>
-
+       
       <div className="d-flex justify-content-between">
         <button
           className="btn btn-primary mt-3"
