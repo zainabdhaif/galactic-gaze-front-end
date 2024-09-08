@@ -6,22 +6,7 @@ import "./../node_modules/bootstrap/dist/css/bootstrap.min.css";
 <<<<<<< HEAD
 import './App.css';
 import Swal from 'sweetalert2';
-// Components
-import NavBar from './components/NavBar/NavBar';
-import Landing from './components/Landing/Landing';
-import Dashboard from './components/Dashboard/Dashboard';
-import SignupForm from './components/SignupForm/SignupForm';
-import SigninForm from './components/SigninForm/SigninForm';
-import Footer from './components/Footer/Footer';
-import MeetupList from './components/MeetupList/MeetupList'
-import MeetupForm from './components/MeetupForm/MeetupForm';
-import EventList from './components/EventList/EventList';
-import EventDetails from './components/EventDetails/EventDetails';
-import EventForm from './components/EventForm/EventForm';
-import EventEdit from './components/EventEdit/EventEdit';
-=======
-import "./App.css";
-// Components
+
 import NavBar from "./components/NavBar/NavBar";
 import Landing from "./components/Landing/Landing";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -36,7 +21,9 @@ import ObservationForm from "./components/ObservationForm/ObservationForm";
 import MySky from "./components/MySky/MySky";
 import ObservationDetails from "./components/ObservationDetails/ObservationDetails";
 import EditObservation from "./components/EditObservation/EditObservation";
->>>>>>> upstream/main
+import EventForm from './components/EventForm/EventForm';
+import EventEdit from './components/EventEdit/EventEdit';
+
 
 const App = () => {
   const navigate = useNavigate();
@@ -81,15 +68,12 @@ const App = () => {
       <NavBar user={user} handleSignout={handleSignout} />
       <main className="flex-grow-1">
         <Routes>
-<<<<<<< HEAD
+
         <Route path="/events" element={<EventList events={events} />} />
         <Route path="/events/:eventId" element={<EventDetails handleRemoveEvent={handleRemoveEvent}/>} />
-          { user ? (
-=======
-          <Route path="/events" element={<EventList events={events} />} />
-          <Route path="/events/:eventId" element={<EventDetails />} />
+
           {user ? (
->>>>>>> upstream/main
+
             <>
              <Route path="/events/new" element={<EventForm handleAddEvent={handleAddEvent} />}
             />

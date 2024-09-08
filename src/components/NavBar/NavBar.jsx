@@ -21,13 +21,10 @@ const NavBar = ({ user, handleSignout }) => {
                 <Link className="nav-link" to="/events">Events</Link>
                 </li>
                 <li className="nav-item">
-<<<<<<< HEAD
                 <Link className="nav-link" to="/events/new">Add Event</Link>
               </li>
-=======
                   <Link className="nav-link" to="/mysky">My Sky</Link>
                 </li>
->>>>>>> upstream/main
                 <li className="nav-item">
                   <Link className="nav-link"  to="">Meetups</Link>
                 </li>
