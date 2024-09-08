@@ -23,6 +23,7 @@ const NavBar = ({ user, handleSignout }) => {
                 <li className="nav-item">
                 <Link className="nav-link" to="/events/new">Add Event</Link>
               </li>
+              <li className="nav-item">
                   <Link className="nav-link" to="/mysky">My Sky</Link>
                 </li>
                 <li className="nav-item">
