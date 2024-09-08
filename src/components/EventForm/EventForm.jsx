@@ -29,8 +29,8 @@ const EventForm = ({ handleAddEvent }) => {
   return (
     <div className="form-background">
       <h3 className="event">Add New Event</h3>
-      <video className="background-video" autoPlay muted loop>
-        <source src="https://cdn.pixabay.com/video/2019/06/23/24623-345209544_large.mp4" type="video/mp4" />
+      <video className="background-video" src="https://cdn.pixabay.com/video/2022/07/06/123311-727474301_large.mp4" autoPlay muted loop>
+        {/* <source  type="video/mp4" /> */}
         Your browser does not support the video tag.
       </video>
       <main className="container-form text-white mt-4">

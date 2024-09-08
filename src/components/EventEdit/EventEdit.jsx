@@ -65,78 +65,101 @@ const EventEdit = () => {
   }
 
   return (
-    <main className="container-edit mt-4">
-      <h1>Edit Event</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="name" className="form-label">Event Name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
+    <div className="form-background">
+    <h3 className="event">Edit Event</h3>
+    <video className="background-video" src="https://cdn.pixabay.com/video/2022/07/06/123311-727474301_large.mp4" autoPlay muted loop>
+      {/* <source type="video/mp4" /> */}
+      Your browser does not support the video tag.
+    </video>
+    <main className="container-form text-white mt-4">
+      <form onSubmit={handleSubmit} className="form-container p-4 rounded shadow-sm">
+        <div className="row">
+          <div className="col-6 mb-3">
+            <label htmlFor="name-input" className="form-label">Event Name</label>
+            <input
+              type="text"
+              name="name"
+              id="name-input"
+              className="form-input form-control"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Event Name"
+              required
+            />
+          </div>
+          <div className="col-6 mb-3">
+            <label htmlFor="description-input" className="form-label">Description</label>
+            <textarea
+              name="description"
+              id="description-input"
+              className="form-input form-control"
+              value={formData.description}
+              onChange={handleChange}
+              placeholder="Event Description"
+            />
+          </div>
         </div>
-        <div className="mb-3">
-          <label htmlFor="description" className="form-label">Description</label>
-          <textarea
-            className="form-control"
-            id="description"
-            name="description"
-            value={formData.description}
-            onChange={handleChange}
-          />
+        <div className="row">
+          <div className="col-6 mb-3">
+            <label htmlFor="location-input" className="form-label">Location</label>
+            <input
+              type="text"
+              name="location"
+              id="location-input"
+              className="form-input form-control"
+              value={formData.location}
+              onChange={handleChange}
+              placeholder="Event Location"
+              required
+            />
+          </div>
+          <div className="col-6 mb-3">
+            <label htmlFor="coordinates-input" className="form-label">Coordinates</label>
+            <input
+              type="text"
+              name="coordinates"
+              id="coordinates-input"
+              className="form-input form-control"
+              value={formData.coordinates}
+              onChange={handleChange}
+              placeholder="Event Coordinates"
+              required
+            />
+          </div>
         </div>
-        <div className="mb-3">
-          <label htmlFor="location" className="form-label">Location</label>
-          <input
-            type="text"
-            className="form-control"
-            id="location"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-          />
+        <div className="row">
+          <div className="col-6 mb-3">
+            <label htmlFor="image-input" className="form-label">Image URL</label>
+            <input
+              type="text"
+              name="image"
+              id="image-input"
+              className="form-input form-control"
+              value={formData.image}
+              onChange={handleChange}
+              placeholder="Image URL"
+              required
+            />
+          </div>
+          <div className="col-6 mb-3">
+            <label htmlFor="video-input" className="form-label">Video URL (optional)</label>
+            <input
+              type="text"
+              name="video"
+              id="video-input"
+              className="form-input form-control"
+              value={formData.video}
+              onChange={handleChange}
+              placeholder="Video URL"
+            />
+          </div>
         </div>
-        <div className="mb-3">
-          <label htmlFor="coordinates" className="form-label">Coordinates</label>
-          <input
-            type="text"
-            className="form-control"
-            id="coordinates"
-            name="coordinates"
-            value={formData.coordinates}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="image" className="form-label">Image URL</label>
-          <input
-            type="text"
-            className="form-control"
-            id="image"
-            name="image"
-            value={formData.image}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="video" className="form-label">Video URL (optional)</label>
-          <input
-            type="text"
-            className="form-control"
-            id="video"
-            name="video"
-            value={formData.video}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">Update Event</button>
+        <button type="submit" className="btn btn-primary w-100">Update Event</button>
       </form>
     </main>
+  </div>
+  
+  
   );
 };
 

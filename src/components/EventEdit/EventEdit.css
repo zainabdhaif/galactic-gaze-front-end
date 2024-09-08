@@ -1,25 +1,28 @@
 .container-edit {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 20px;
-    border: 3px solid #6a0dad; 
     border-radius: 10px; 
-    max-width: 600px; 
+    max-width: 00px; 
     margin: 50px auto; 
     position: relative;
   }
-  
+
 
   h1 {
     color: #ffffff;
     text-align: center;
     margin-bottom: 20px; 
+    padding-top:60px;
+ 
   }
   
   .form-control {
     background-color: #333333; 
     color: #ffffff; 
     border: 1px solid #6a0dad; 
+  
   }
+  
   
   .form-control::placeholder {
     color: #bbbbbb; 
