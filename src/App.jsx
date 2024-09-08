@@ -3,8 +3,9 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import authService from "./services/authService";
 import eventService from "./services/eventService";
 import "./../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-// Components
+import './App.css';
+import Swal from 'sweetalert2';
+
 import NavBar from "./components/NavBar/NavBar";
 import Landing from "./components/Landing/Landing";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -19,6 +20,9 @@ import ObservationForm from "./components/ObservationForm/ObservationForm";
 import MySky from "./components/MySky/MySky";
 import ObservationDetails from "./components/ObservationDetails/ObservationDetails";
 import EditObservation from "./components/EditObservation/EditObservation";
+import EventForm from './components/EventForm/EventForm';
+import EventEdit from './components/EventEdit/EventEdit';
+
 
 const App = () => {
   const navigate = useNavigate();
@@ -31,15 +35,48 @@ const App = () => {
     setUser(null);
   };
 
+  const handleRemoveEvent = async (eventId) => {
+    try {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#6a0dad',
+        cancelButtonColor: '#8b0000',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+          await eventService.deleteEvent(eventId);
+          navigate("/events");
+        }
+      });
+    } catch (error) {
+      console.error("Error", error);
+    }
+  };
+
+  const handleAddEvent = async (formData) => {
+    const newEvent = await eventService.create(formData);
+    setEvents([...events, newEvent]); 
+    navigate("/events");
+  }
+
   return (
     <div className="d-flex flex-column min-vh-100">
       <NavBar user={user} handleSignout={handleSignout} />
       <main className="flex-grow-1">
         <Routes>
-          <Route path="/events" element={<EventList events={events} />} />
-          <Route path="/events/:eventId" element={<EventDetails />} />
+
+        <Route path="/events" element={<EventList events={events} />} />
+        <Route path="/events/:eventId" element={<EventDetails handleRemoveEvent={handleRemoveEvent}/>} />
+
           {user ? (
+
             <>
+             <Route path="/events/new" element={<EventForm handleAddEvent={handleAddEvent} />}
+            />
+             <Route path="/events/:eventId/edit" element={<EventEdit />}/>
               <Route path="/" element={<Dashboard user={user} />} />
               {user.type === "club" ? (
                 <Route path="/meetups/:id" element={<MeetupForm />} />

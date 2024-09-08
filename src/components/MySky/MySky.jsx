@@ -17,7 +17,7 @@ const MySky = () => {
       } catch (error) {
         console.error("Error fetching observations:", error);
       } finally {
-        setLoading(false); // Set loading to false after fetching
+        setLoading(false); 
       } 
     };
 
@@ -31,7 +31,7 @@ const MySky = () => {
   return (
     <div className="container mysky-container">
       <h2 className="obsh22">{user.username}'s Observations</h2>
-      {observations.length === 0 ? (
+      {observations.length == 0 ? (
         <p className="no-obs-text">No observations found.</p>
       ) : (
         <div className="row">

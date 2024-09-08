@@ -27,12 +27,9 @@ const EventDetails = (props) => {
   return (
     
     <main className="container mt-4">
-      <h1 className="display-4">{event.name}</h1>
+      <h2 className="display-4">{event.name}</h2>
       
-      <header className="header mb-4">
-        
         <div className="cover">
-      
             <video 
               className="event-video"
               src={event.video} 
@@ -44,8 +41,7 @@ const EventDetails = (props) => {
             />
         
         </div>
-      </header>
-
+    
       <div className="row mb-4">
         <div className="col-md-8">
     
@@ -55,10 +51,10 @@ const EventDetails = (props) => {
           <p>Coordinates: {event.coordinates}</p>
         </div>
       </div>
-
+       
       <div className="d-flex justify-content-between">
         <button
-          className="btn btn-primary mt-3"
+          className="btn btn-primary  mt-3 "
           onClick={() => navigate(`/events/${eventId}/edit`)}
         >
           Edit
