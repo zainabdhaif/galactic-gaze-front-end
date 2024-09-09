@@ -92,9 +92,9 @@ const Quiz = () => {
                   )}
                 </div>
                 {answerFeedback && (
-                  <h3 className={isAnswerCorrect === false ? "incorrect" : ""}>
+                  <h4 className={isAnswerCorrect === false ? "incorrect" : ""}>
                     {answerFeedback}
-                  </h3>
+                  </h4>
                 )}
                 {answerFeedback && (
                   <button onClick={handleNextQuestion}>Next Question</button>
