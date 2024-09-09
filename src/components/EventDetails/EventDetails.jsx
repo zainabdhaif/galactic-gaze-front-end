@@ -28,22 +28,23 @@ const EventDetails = (props) => {
 
   return (
     <main className="container mt-4">
-      <h1 className="display-4">{event.name}</h1>
-
-      <header className="header mb-4">
+      <h2 className="display-4">{event.name}</h2>
+      
+        
         <div className="cover">
-          <video
-            className="event-video"
-            src={event.video}
-            autoPlay
-            muted
-            loop
-            playsInline
-            style={{ width: "100%", height: "300px", objectFit: "cover" }}
-          />
+      
+            <video 
+              className="event-video"
+              src={event.video} 
+              autoPlay 
+              muted 
+              loop 
+              playsInline 
+              style={{ width: '100%', height: '300px', objectFit: 'cover' }}
+            />
+        
         </div>
-      </header>
-
+    
       <div className="row mb-4">
         <div className="col-md-8">
           <p>Date & Time: {new Date(event.datetime).toLocaleString()}</p>
@@ -52,9 +53,9 @@ const EventDetails = (props) => {
           <p>Coordinates: {event.coordinates}</p>
         </div>
       </div>
-
+       
       <div className="d-flex justify-content-between">
-        {user ? (
+      {user ? (
           user.type === "admin" ? (
             <>
               <button
@@ -76,6 +77,13 @@ const EventDetails = (props) => {
           </Link>
           ) : null
         ) : null}
+
+      <button
+          className="btn btn-secondary mt-3"
+          onClick={() => navigate(`/events/${eventId}/observations/new`)} // Navigate to the observation form
+        >
+          Add Observation
+        </button>
       </div>
     </main>
   );
