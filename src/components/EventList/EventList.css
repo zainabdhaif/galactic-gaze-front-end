@@ -9,9 +9,11 @@
 
 .video {
   width: 100%;
-  height: auto;
+  height: 400px;
   display: block;
   object-fit: cover;
+  padding-bottom:30px;
+  padding-top:30px;
 }
 
 .head{
@@ -79,5 +81,4 @@ hr{
   background-color: #8e44ad; 
   color: #fff; 
 }
-
 
