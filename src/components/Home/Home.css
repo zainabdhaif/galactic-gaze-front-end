@@ -157,12 +157,12 @@ body {
     border: none;
     border-radius: 5px;
     background-color: black; 
-    color: #fff; 
+    color: #8e44ad; 
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
   }
   
   .learn-button:hover {
-    background-color: #5b0a9a; 
+    background-color: white; 
   }
