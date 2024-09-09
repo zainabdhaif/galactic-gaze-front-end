@@ -4,8 +4,8 @@ import authService from "../../services/authService";
 import { Link } from "react-router-dom";
 
 const MeetupList = () => {
-  const [user, setUser] = useState(authService.getUser());
   const [meetups, setMeetups] = useState([]);
+  const user = authService.getUser();
 
   useEffect(() => {
     const getMeetups = async () => {
@@ -59,10 +59,7 @@ const MeetupList = () => {
                     Delete
                   </button>
                 </>
-              ) : // user.type === "admin" ? (
-              //   <button>Delete</button>
-              // ) :
-              null
+              ) : null
             ) : null}
             <hr />
           </div>

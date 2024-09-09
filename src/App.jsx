@@ -40,7 +40,10 @@ const App = () => {
             <>
               <Route path="/" element={<Dashboard user={user} />} />
               {user.type === "club" ? (
-                <Route path='/meetups/:id' element={<MeetupForm />} />
+                <>
+                  <Route path='/meetups/:meetupid' element={<MeetupForm />} />
+                  <Route path='/events/:eventid/meetups/new' element={<MeetupForm/>}/>
+                </>
               ) : null}
             </>         
           ) : (
