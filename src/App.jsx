@@ -79,8 +79,10 @@ const App = () => {
              <Route path="/events/:eventId/edit" element={<EventEdit />}/>
               <Route path="/" element={<Dashboard user={user} />} />
               {user.type === "club" ? (
-                <Route path="/meetups/:id" element={<MeetupForm />} />
-              ) : null}
+                <>
+                  <Route path='/meetups/:meetupid' element={<MeetupForm />} />
+                  <Route path='/events/:eventid/meetups/new' element={<MeetupForm/>}/>
+                </>              ) : null}
             </>
           ) : (
             <Route path="/" element={<Dashboard />} />
