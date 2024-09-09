@@ -79,24 +79,14 @@ const EventEdit = () => {
               type="text"
               name="name"
               id="name-input"
-              className="form-input form-control"
+              className="form-input form-control "
               value={formData.name}
               onChange={handleChange}
               placeholder="Event Name"
               required
             />
           </div>
-          <div className="col-6 mb-3">
-            <label htmlFor="description-input" className="form-label">Description</label>
-            <textarea
-              name="description"
-              id="description-input"
-              className="form-input form-control"
-              value={formData.description}
-              onChange={handleChange}
-              placeholder="Event Description"
-            />
-          </div>
+         
         </div>
         <div className="row">
           <div className="col-6 mb-3">
@@ -152,6 +142,21 @@ const EventEdit = () => {
               placeholder="Video URL"
             />
           </div>
+          <div className="col-12 mb-3">
+              <label htmlFor="description-input" className="form-label">
+                Description
+              </label>
+              <textarea
+                required
+                name="description"
+                id="description-input"
+                className="form-input form-control"
+                value={formData.description}
+                onChange={handleChange}
+                placeholder="Event Description"
+                rows="4"
+              />
+            </div>
         </div>
         <button type="submit" className="btn btn-primary w-100">Update Event</button>
       </form>

@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 
 import NavBar from "./components/NavBar/NavBar";
 import Landing from "./components/Landing/Landing";
-import Dashboard from "./components/Dashboard/Dashboard";
+import Dashboard from "./components/Home/Home";
 import SignupForm from "./components/SignupForm/SignupForm";
 import SigninForm from "./components/SigninForm/SigninForm";
 import Footer from "./components/Footer/Footer";
@@ -22,6 +22,7 @@ import ObservationDetails from "./components/ObservationDetails/ObservationDetai
 import EditObservation from "./components/EditObservation/EditObservation";
 import EventForm from './components/EventForm/EventForm';
 import EventEdit from './components/EventEdit/EventEdit';
+import Quiz from './components/Quiz/Quiz';
 
 
 const App = () => {
@@ -97,6 +98,7 @@ const App = () => {
           <Route path="/mysky" element={<MySky />} />
           <Route path="/observations/:id" element={<ObservationDetails />} />
           <Route path="/observations/edit/:id" element={<EditObservation />} />
+          <Route path="/quiz" element={<Quiz />} />   
         </Routes>
       </main>
     </div>

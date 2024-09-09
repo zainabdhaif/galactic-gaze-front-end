@@ -116,6 +116,21 @@ const EventForm = ({ handleAddEvent }) => {
                 placeholder="Video URL"
               />
             </div>
+            <div className="col-12 mb-3">
+              <label htmlFor="description-input" className="form-label">
+                Description
+              </label>
+              <textarea
+                required
+                name="description"
+                id="description-input"
+                className="form-input form-control"
+                value={formData.description}
+                onChange={handleChange}
+                placeholder="Event Description"
+                rows="4"
+              />
+            </div>
           </div>
           <button type="submit" className="btn btn-primary w-100">Submit</button>
         </form>
