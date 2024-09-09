@@ -48,7 +48,7 @@
   .mysky-observation-img {
     height: 250px;
     object-fit: cover;
-    border-bottom: 3px solid #3c0e5c; /* Stylish border under the image */
+    border-bottom: 3px solid #3c0e5c; 
   }
   
   .mysky-card-title {
