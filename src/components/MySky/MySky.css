@@ -1,0 +1,68 @@
+.mysky-container {
+    padding: 40px 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .mysky-header {
+    margin-bottom: 30px;
+    font-size: 2.5rem; 
+    font-weight: bold;
+    color: #ffffff; 
+    text-align: center;
+  }
+  
+  .loading-text {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #6a0dad; 
+  }
+  
+  .no-observations-text {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #7f8c8d; 
+  }
+  
+  .mysky-observation-row {
+    margin-top: 20px;
+  }
+  
+  .mysky-observation-col {
+    margin-bottom: 30px;
+  }
+  
+  .mysky-observation-card {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden; 
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #ecf0f1; 
+  }
+  
+  .mysky-observation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .mysky-observation-img {
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 3px solid #3c0e5c; 
+  }
+  
+  .mysky-card-title {
+    color: #201938; 
+  }
+  
+  .mysky-view-btn {
+    background-color: #6a0dad; 
+    color: rgb(255, 255, 255);
+    border-radius: 10px; 
+    padding: 10px 20px;
+    transition: background-color 0.2s;
+  }
+  
+  .mysky-view-btn:hover {
+    background-color: #8a2be2; 
+  }
