@@ -80,7 +80,7 @@ const EventDetails = (props) => {
 
       <button
           className="btn btn-secondary mt-3"
-          onClick={() => navigate(`/events/${eventId}/observations/new`)} // Navigate to the observation form
+          onClick={() => navigate(`/events/${eventId}/observations/new`)} 
         >
           Add Observation
         </button>

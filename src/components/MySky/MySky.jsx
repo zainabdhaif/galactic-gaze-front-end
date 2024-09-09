@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; 
 import observationService from "../../services/observationService"; 
 import auth from "../../services/authService"; 
+import "./MySky.css";
 
 const MySky = () => {
   const [observations, setObservations] = useState([]);
-  const [loading, setLoading] = useState(true); // Loading state
+  const [loading, setLoading] = useState(true);
   const user = auth.getUser(); 
 
   useEffect(() => {
@@ -25,29 +26,33 @@ const MySky = () => {
   }, [user.id]);
 
   if (loading) {
-    return <h1>Loading observations...</h1>; // Loading message
+    return <h1 className="loading-text">Loading observations...</h1>;
   }
 
   return (
     <div className="container mysky-container">
-      <h2 className="obsh22">{user.username}'s Observations</h2>
-      {observations.length == 0 ? (
-        <p className="no-obs-text">No observations found.</p>
+      <h2 className="mysky-header">{user.username}'s Observations</h2>
+      {observations.length === 0 ? (
+        <p className="no-observations-text">No observations found.</p>
       ) : (
-        <div className="row">
+        <div className="row mysky-observation-row">
           {observations.map((observation) => (
-            <div key={observation._id} className="col-md-4">
-              <div className="card observation-card">
+            <div key={observation._id} className="col-md-4 mysky-observation-col">
+              <div className="card mysky-observation-card">
                 {observation.image && (
                   <img 
                     src={observation.image} 
                     alt="Observation" 
-                    className="card-img-top observation-img" 
+                    className="card-img-top mysky-observation-img" 
                   />
                 )}
                 <div className="card-body">
-                  <h5 className="card-title"><strong>Event:</strong> {observation.eventid.name}</h5>
-                  <Link to={`/observations/${observation._id}`} className="btn btn-primary">View Details</Link>
+                  <h5 className="card-title mysky-card-title">
+                    <strong>Event:</strong> {observation.eventid.name}
+                  </h5>
+                  <Link to={`/observations/${observation._id}`} className="btn mysky-view-btn">
+                    View Observation
+                  </Link>
                 </div>
               </div>
             </div>
