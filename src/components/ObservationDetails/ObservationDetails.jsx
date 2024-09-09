@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import observationService from "../../services/observationService";
 import Swal from 'sweetalert2';
-import './ObservationDetails.css'; // Assuming you have a separate CSS file for styles
+import './ObservationDetails.css'; 
 
 
 const ObservationDetails = () => {
@@ -98,7 +98,7 @@ const ObservationDetails = () => {
           </div>
         </div>
         <div className="button-container mt-4">
-          <button className="btn btn-primary" onClick={handleEdit}>Edit</button>
+          <button className="btn primary" onClick={handleEdit}>Edit</button>
           <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
         </div>
       </main>

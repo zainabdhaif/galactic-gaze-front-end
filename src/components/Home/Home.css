@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1a1a1a;
+    color: #fff;
+  }
+  
+  .home {
+    text-align: center;
+  }
+  
+  .main {
+    padding: 90px;
+  }
+  
+  .content {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+  }
+  
+  .text-section {
+    max-width: 50%; 
+  }
+  
+  .main h1 {
+    font-size: 36px;
+  }
+  
+  .main p {
+    margin: 20px 0;
+  }
+  
+  .buttons {
+    margin: 20px 0;
+  }
+  
+  .explore, .quiz {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .explore {
+    background-color: #6a0dad;
+    color: #fff;
+  }
+  
+  .quiz {
+    background-color: transparent;
+    color: #fff;
+    border: 1px bold White;
+  }
+  
+  .image {
+    width: 100%;
+    height: auto;
+    max-height: 400px; 
+    object-fit: cover; 
+    margin-left: 20px; 
+    border: 3px solid #6a0dad; 
+    border-radius: 10px; 
+  }
+  
+  .upcoming-events {
+    padding: 90px;
+  }
+  
+  .upcoming-events h2 {
+    margin-bottom: 20px;
+  }
+  
+  .events {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .event-placeholder {
+    width: 100px;
+    height: 100px;
+    background-color: #444;
+    margin: 10px;
+  }
+
+  .adventure-section {
+    background-color: #6a0dad; 
+    color: #fff;
+    padding: 90px;
+    border-radius: 10px; 
+    margin: 100px 0; 
+    text-align: center; 
+    margin-left:40px;
+    margin-right:40px;
+  }
+  
+  .adventure-icon {
+    width: 100px; 
+    height: auto; 
+    margin-bottom: 20px; 
+  }
+  
+  .adventure-section h2 {
+    margin-bottom: 10px;
+  }
+  
+  .adventure-section p {
+    margin-bottom: 20px; 
+  }
+  
+  .gaze-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .gaze-button:hover {
+    background-color: #f0f0f0; 
+  }
+
+
+  .discover-section {
+    display: flex;
+    align-items: center; 
+    color: #fff;
+    padding: 30px;
+    border-radius: 10px; 
+    margin: 20px 0; 
+  }
+  
+  .discover-image {
+    flex: 1; 
+    margin-right: 20px; 
+  }
+  
+  .discover-image img {
+    width: 100%; 
+    height: auto; 
+    max-height: 500px; 
+    border-radius: 10px;
+  }
+  
+  .discover-text {
+    flex: 1; 
+  }
+  
+  .discover-text h2 {
+    margin-bottom: 10px;
+  }
+  
+  .learn-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: black; 
+    color: #fff; 
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .learn-button:hover {
+    background-color: #5b0a9a; 
+  }

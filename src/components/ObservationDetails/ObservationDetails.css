@@ -22,7 +22,7 @@
     background-color: rgba(0, 0, 0, 0.6); 
   }
   
-  .btn-primary {
+  .primary {
     background-color: #6a0dad; 
     border-color: #6a0dad;
   }
@@ -31,94 +31,11 @@
     background-color: #8b0000;
     border-color: #8b0000;
   }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
   
-.obs-container {
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    margin-top: 30px;
-    color: #ffffff;
-}
+  
 
-.obs-header {
-    margin-bottom: 40px;
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: #ffffff;
-    text-align: center;
-    letter-spacing: 1px;
-}
-
-.obs-info-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    margin-bottom: 30px;
-}
-
-.obs-event-info,
-.obs-observation-info {
-    flex: 1;
-    background-color: #48414d7e;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.obs-image-container {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    margin-bottom: 20px; 
-}
-
-
-.obs-image {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(186, 185, 185, 0.1);
-}
-
-.obs-notes {
-    margin-top: 15px;
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #ffffff;
-}
-
-.obs-button-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 25px;
-    padding: 0 10px;
-}
-
-.obs-edit-btn,
-.obs-delete-btn {
-    border-radius: 10px;
-    padding: 12px 24px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.obs-edit-btn {
-    background-color: #6a0dad;
-    color: white;
-    border: none;
-}
-
-.obs-delete-btn {
-    background-color: #8b0000;
-    color: white;
-    border: none;
-}
-
-.obs-edit-btn:hover {
-    background-color: #8a2be2;
-}
-
-.obs-delete-btn:hover {
-    background-color: #b22222;
-}
->>>>>>> upstream/main
