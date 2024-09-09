@@ -22,6 +22,7 @@ import ObservationDetails from "./components/ObservationDetails/ObservationDetai
 import EditObservation from "./components/EditObservation/EditObservation";
 import EventForm from './components/EventForm/EventForm';
 import EventEdit from './components/EventEdit/EventEdit';
+import Quiz from './components/Quiz/Quiz';
 
 
 const App = () => {
@@ -97,6 +98,7 @@ const App = () => {
           <Route path="/mysky" element={<MySky />} />
           <Route path="/observations/:id" element={<ObservationDetails />} />
           <Route path="/observations/edit/:id" element={<EditObservation />} />
+          <Route path="/quiz" element={<Quiz />} />   
         </Routes>
       </main>
     </div>

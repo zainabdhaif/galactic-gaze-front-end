@@ -1,0 +1,25 @@
+button {
+    margin: 5px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+select {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+h3 {
+    color: #16581a; 
+}
+
+h3.incorrect {
+    color: #841919; 
+}
+
+.play-again{
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
