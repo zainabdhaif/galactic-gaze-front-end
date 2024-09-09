@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import observationService from "../../services/observationService";
-import eventService from "../../services/eventService";
 import auth from "../../services/authService";
 import Swal from 'sweetalert2'; 
+import './EditObservation.css';  // Make sure this CSS file exists
 
 const EditObservation = () => {
   const user = auth.getUser();
@@ -61,73 +61,81 @@ const EditObservation = () => {
   if (!observation) return <h1>Loading details...</h1>;
 
   return (
-    <div className="container mt-4">
-      <h2 className="obsh2">Edit Observation for {observation.eventid.name}</h2>
+    <div className="form-background">
+    
+      <video className="background-video" src="https://cdn.pixabay.com/video/2021/02/20/65781-515412168_large.mp4" autoPlay muted loop>
+        Your browser does not support the video tag.
+      </video>
+      <main className="container-form text-white mt-4">
+        <h3 className="mb-3"> Edit {observation.eventid.name} Observation</h3>
+    
+          
 
-      <div className="row">
-        <div className="col-md-6">
-          <img
-            src={observation.eventid.image}
-            alt={observation.eventid.name}
-            className="img-fluid rounded"
-          />
-        </div>
-        <div className="col-md-6">
-          <h3 className="mb-3">{observation.eventid.name}</h3>
-          <p className="lead" id="observ">{observation.eventid.description}</p>
+        <form onSubmit={handleSubmit} className="form-container p-4 rounded shadow-sm">
+          <div className="row">
+            <div className="col-12 mb-3">
+              <div className="row">
+                <div className="col-md-6 mb-3">
+                  <label htmlFor="visibility" className="form-label">
+                    Visibility
+                  </label>
+                  <input
+                    type="text"
+                    id="visibility"
+                    name="visibility"
+                    value={observation.visibility}
+                    onChange={handleChange}
+                    className="form-input form-control"
+                    required
+                  />
+                </div>
 
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label htmlFor="visibility" className="form-label">
-                Visibility
-              </label>
-              <input
-                type="text"
-                id="visibility"
-                name="visibility"
-                value={observation.visibility}
-                onChange={handleChange}
-                className="form-control"
-                required
-              />
+                <div className="col-md-6 mb-3">
+                  <label htmlFor="image" className="form-label">
+                    Image URL (optional)
+                  </label>
+                  <input
+                    id="image"
+                    name="image"
+                    value={observation.image}
+                    onChange={handleChange}
+                    className="form-input form-control"
+                  />
+                </div>
+
+            <div className="col-12 mb-3">
+              <div className="row">
+                
+
+                <div className="col-md-6 mb-3">
+                  <label htmlFor="notes" className="form-label">
+                    Notes
+                  </label>
+                  <textarea
+                    id="notes"
+                    name="notes"
+                    value={observation.notes}
+                    onChange={handleChange}
+                    className="form-input form-control"
+                    required
+                  />
+                </div>
+                 </div>
             </div>
 
-            <div className="mb-3">
-              <label htmlFor="notes" className="form-label">
-                Notes
-              </label>
-              <textarea
-                id="notes"
-                name="notes"
-                value={observation.notes}
-                onChange={handleChange}
-                className="form-control"
-                required
-              />
+               
+              </div>
             </div>
+          </div>
 
-            <div className="mb-3">
-              <label htmlFor="image" className="form-label">
-                Image URL (optional)
-              </label>
-              <input
-                id="image"
-                name="image"
-                value={observation.image}
-                onChange={handleChange}
-                className="form-control"
-              />
-            </div>
-
-            <button type="submit" className="btn btn-primary">
-              Save Changes
-            </button>
-            <button type="button" className="btn btn-secondary" onClick={() => navigate(-1)}>
-              Cancel
-            </button>
-          </form>
-        </div>
-      </div>
+          <button type="submit" className="btn btn-primary w-100">
+            Save Changes
+          </button>
+          <button type="button" className="btn btn-secondary w-100 mt-2" onClick={() => navigate(-1)}>
+            Cancel
+          </button>
+        </form>
+      </main>
     </div>
   );
 };
