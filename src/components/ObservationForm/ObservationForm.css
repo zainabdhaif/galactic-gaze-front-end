@@ -1,8 +1,41 @@
-.form-container .row {
-    margin-bottom: 15px;
+.form-background {
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
   }
   
-  .form-container .form-input {
-    margin-bottom: 0;
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.5;
   }
+  
+  .form{
+    border: 1px solid #6a0dad; 
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #1e1e2f; 
+    margin: auto; 
+    height:360px;
+    width:400px;
+  }
+  
+  
+  .event-title {
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+ 
 
+
+
+
+  

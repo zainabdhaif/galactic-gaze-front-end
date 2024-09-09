@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import observationService from "../../services/observationService"; 
-import Swal from 'sweetalert2'; 
+import observationService from "../../services/observationService";
+import Swal from 'sweetalert2';
+import './ObservationDetails.css'; // Assuming you have a separate CSS file for styles
 
 const ObservationDetails = () => {
   const { id } = useParams();
   const [observation, setObservation] = useState(null);
-  const [loading, setLoading] = useState(true); // Loading state
+  const [loading, setLoading] = useState(true);
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchObservation = async () => {
@@ -19,7 +20,7 @@ const ObservationDetails = () => {
         console.error("Error fetching observation details:", error);
         Swal.fire('Error!', 'Failed to fetch observation details.', 'error');
       } finally {
-        setLoading(false); // Set loading to false after fetching
+        setLoading(false);
       }
     };
 
@@ -41,7 +42,7 @@ const ObservationDetails = () => {
       try {
         await observationService.remove(id);
         Swal.fire('Deleted!', 'Your observation has been deleted.', 'success');
-        navigate('/mysky'); 
+        navigate('/mysky');
       } catch (error) {
         console.error("Error deleting observation:", error);
         Swal.fire('Error!', 'There was an error deleting your observation.', 'error');
@@ -50,11 +51,11 @@ const ObservationDetails = () => {
   };
 
   const handleEdit = () => {
-    navigate(`/observations/edit/${id}`); 
+    navigate(`/observations/edit/${id}`);
   };
 
   if (loading) {
-    return <h1>Loading observation details...</h1>; 
+    return <h1>Loading observation details...</h1>;
   }
 
   if (!observation) {
@@ -62,29 +63,43 @@ const ObservationDetails = () => {
   }
 
   return (
-    <div className="container Obs">
-      <h2>{observation.eventid.name}'s Observation Details</h2>
+    <div className="form-background">
+      <h3 className="event">Observation Details for {observation.eventid.name}</h3>
+      <video
+        className="background-video"
+        src="https://cdn.pixabay.com/video/2021/02/20/65781-515412168_large.mp4"
+        autoPlay
+        muted
+        loop
+      >
+        Your browser does not support the video tag.
+      </video>
+      <main className="container-form text-white mt-4">
+        <div className="row">
+          <div className="col-md-6">
+            <div className="info-container p-4 rounded shadow-sm" style={{ border: '2px solid #6a0dad' }}>
+              <h5><strong>{observation.eventid.name}</strong></h5>
+              <p><strong>Date & Time:</strong> {new Date(observation.eventid.datetime).toLocaleString()}</p>
+              <p><strong>Location:</strong> {observation.eventid.location}</p>
+              <p><strong>Coordinates:</strong> {observation.eventid.coordinates}</p>
+            </div>
+          </div>
 
-      <div className="info-container">
-        <div className="event-info">
-          <h5><strong>{observation.eventid.name}</strong></h5>
-          <p><strong>Date & Time:</strong> {new Date(observation.eventid.datetime).toLocaleString()}</p>
-          <p><strong>Location:</strong> {observation.eventid.location}</p>
-          <p><strong>Coordinates:</strong> {observation.eventid.coordinates}</p>
+          <div className="col-md-6">
+            <div className="info-container p-4 rounded shadow-sm" style={{ border: '2px solid #6a0dad' }}>
+              {observation.image && (
+                <img src={observation.image} alt="Observation" className="img-fluid" />
+              )}
+              <p><strong>Notes:</strong> {observation.notes}</p>
+              <p><strong>Visibility:</strong> {observation.visibility}</p>
+            </div>
+          </div>
         </div>
-
-        <div className="observation-info">
-          {observation.image && (
-            <img src={observation.image} alt="Observation" className="img-fluid" />
-          )}
-          <p><strong>Notes:</strong> {observation.notes}</p>
-          <p><strong>Visibility:</strong> {observation.visibility}</p>
+        <div className="button-container mt-4">
+          <button className="btn btn-primary" onClick={handleEdit}>Edit</button>
+          <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
         </div>
-      </div>
-      <div className="button-container">
-        <button className="btn btn-primary" onClick={handleEdit}>Edit</button>
-        <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
-      </div>
+      </main>
     </div>
   );
 };
