@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-<<<<<<< HEAD
 import observationService from "../../services/observationService";
 import Swal from 'sweetalert2';
 import './ObservationDetails.css'; // Assuming you have a separate CSS file for styles
-=======
-import observationService from "../../services/observationService"; 
-import Swal from 'sweetalert2'; 
-import './ObservationDetails.css';
->>>>>>> upstream/main
+
 
 const ObservationDetails = () => {
   const { id } = useParams();
@@ -69,7 +64,7 @@ const ObservationDetails = () => {
   }
 
   return (
-<<<<<<< HEAD
+
     <div className="form-background">
       <h3 className="event">Observation Details for {observation.eventid.name}</h3>
       <video
@@ -107,8 +102,8 @@ const ObservationDetails = () => {
           <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
         </div>
       </main>
-=======
-    <div className="obs-container">
+
+    {/* <div className="obs-container">
       <h2 className="obs-header">{observation.eventid.name}'s Observation Details</h2>
 
       <div className="obs-info-container">
@@ -137,8 +132,8 @@ const ObservationDetails = () => {
       <div className="obs-button-container">
         <button className="obs-edit-btn" onClick={handleEdit}>Edit</button>
         <button className="obs-delete-btn" onClick={handleDelete}>Delete</button>
-      </div>
->>>>>>> upstream/main
+      </div> */}
+
     </div>
   );
 };
