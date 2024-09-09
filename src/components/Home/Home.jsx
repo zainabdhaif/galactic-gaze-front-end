@@ -13,6 +13,10 @@ const Home = () => {
     navigate('/meetups'); 
   };
 
+  const handleQuizClick = () => {
+    navigate('/quiz'); 
+  };
+
   return (
     <div className="home">
       
@@ -27,7 +31,9 @@ const Home = () => {
               <button className="explore" onClick={handleExploreClick}>
                 Explore
               </button>
-              <button className="quiz">Take a Quiz</button>
+              <button className="quiz" onClick={handleQuizClick}> 
+                Take a Quiz
+              </button>
             </div>
           </div>
           <div className="image-wrapper">
