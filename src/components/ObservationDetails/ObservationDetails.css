@@ -18,17 +18,17 @@
   }
   
   .info-container {
-    border: 2px solid #6a0dad; /* Purple border */
-    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for better text visibility */
+    border: 2px solid #6a0dad; 
+    background-color: rgba(0, 0, 0, 0.6); 
   }
   
   .btn-primary {
-    background-color: #6a0dad; /* Purple color */
+    background-color: #6a0dad; 
     border-color: #6a0dad;
   }
   
   .btn-danger {
-    background-color: #8b0000; /* Dark red color */
+    background-color: #8b0000;
     border-color: #8b0000;
   }
   
