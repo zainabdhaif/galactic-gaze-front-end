@@ -78,8 +78,8 @@ const ObservationDetails = () => {
       </video>
       <main className="container-form text-white mt-4">
         <div className="row">
-          <div className="col-md-6">
-            <div className="info-container p-4 rounded shadow-sm" style={{ border: '2px solid #6a0dad' }}>
+          <div className="col-md-6" style={{ display: 'flex', justifyContent: 'space-around'}}>
+            <div className="info-container p-4 rounded shadow-sm" style={{ border: '2px solid #6a0dad', width:'300px', height:'300px'}}>
               <h5><strong>{observation.eventid.name}</strong></h5>
               <p><strong>Date & Time:</strong> {new Date(observation.eventid.datetime).toLocaleString()}</p>
               <p><strong>Location:</strong> {observation.eventid.location}</p>
@@ -88,7 +88,7 @@ const ObservationDetails = () => {
           </div>
 
           <div className="col-md-6">
-            <div className="info-container p-4 rounded shadow-sm" style={{ border: '2px solid #6a0dad' }}>
+            <div className="info-container p-4 rounded shadow-sm" style={{ border: '2px solid #6a0dad', width:'300px', height:'300px'  }}>
               {observation.image && (
                 <img src={observation.image} alt="Observation" className="img-fluid" />
               )}

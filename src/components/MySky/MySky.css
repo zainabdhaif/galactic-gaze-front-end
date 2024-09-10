@@ -34,25 +34,18 @@
   
   .mysky-observation-card {
     border: none;
-    border-radius: 8px;
     overflow: hidden; 
-    transition: transform 0.3s, box-shadow 0.3s;
-    background-color: #ecf0f1; 
-  }
-  
-  .mysky-observation-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    background-color: #2f263872; 
   }
   
   .mysky-observation-img {
     height: 250px;
     object-fit: cover;
-    border-bottom: 3px solid #3c0e5c; 
+    border-bottom: 3px solid #26083b; 
   }
   
   .mysky-card-title {
-    color: #201938; 
+    color: #f3f0f0; 
   }
   
   .mysky-view-btn {
