@@ -41,7 +41,7 @@ const ObservationForm = () => {
     e.preventDefault();
     try {
       await observationService.create(observation);
-      navigate(`/events/${eventId}`);
+      navigate(`/mysky`);
     } catch (error) {
       console.error("Error creating observation:", error);
     }

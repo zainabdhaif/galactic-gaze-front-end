@@ -56,34 +56,31 @@ const EventDetails = (props) => {
        
       <div className="d-flex justify-content-between">
       {user ? (
-          user.type === "admin" ? (
-            <>
-              <button
-                className="btn btn-primary mt-3"
-                onClick={() => navigate(`/events/${eventId}/edit`)}
-              >
-                Edit
-              </button>
-              <button
-                className="btn btn-danger mt-3"
-                onClick={() => props.handleRemoveEvent(eventId)}
-              >
-                Delete
-              </button>
-            </>
-          ) : user.type === "club" ? (
-          <Link key={eventId} to={`/events/${eventId}/meetups/new`}>
-            <button>Add meetup</button>
-          </Link>
-          ) : null
-        ) : null}
-
+  user.type === "admin" ? (
+    <>
       <button
-          className="btn btn-secondary mt-3"
-          onClick={() => navigate(`/events/${eventId}/observations/new`)} 
-        >
-          Add Observation
-        </button>
+        className="btn btn-primary mt-3"
+        onClick={() => navigate(`/events/${eventId}/edit`)}
+      >
+        Edit
+      </button>
+      <button
+        className="btn btn-danger mt-3"
+        onClick={() => props.handleRemoveEvent(eventId)}
+      >
+        Delete
+      </button>
+    </>
+  ) : user.type === "club" ? (
+    <Link key={eventId} to={`/events/${eventId}/meetups/new`}>
+      <button className="btn btn-primary mt-3">Add Meetup</button>
+    </Link>
+  ) : user.type === "user" ? (
+    <Link key={eventId} to={`/events/${eventId}/observations/new`}>
+    <button className="btn btn-primary mt-3">Add Observation</button>
+  </Link>
+  ) : null
+) : null}
       </div>
     </main>
   );
