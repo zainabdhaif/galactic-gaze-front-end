@@ -68,9 +68,7 @@ const EditObservation = () => {
       </video>
       <main className="container-form text-white mt-4">
         <h3 className="mb-3"> Edit {observation.eventid.name} Observation</h3>
-    
-          
-
+  
         <form onSubmit={handleSubmit} className="form-container p-4 rounded shadow-sm">
           <div className="row">
             <div className="col-12 mb-3">
