@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import UpcomingEvents from '../EventCards/EventCards';
 import './Home.css';
 
 const Home = () => {
@@ -48,10 +49,7 @@ const Home = () => {
     
       </main>
       <section className="upcoming-events">
-        <h2>Upcoming Events</h2>
-        <div className="events">
-         
-        </div>
+         <UpcomingEvents/>
       </section>
 
 
