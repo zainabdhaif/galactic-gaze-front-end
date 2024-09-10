@@ -14,8 +14,9 @@ const CategorySelection = ({ onSelectCategory }) => {
                 {categories.map((category, index) => (
                     <div className="quiz-card" key={index}>
                         <h3>{category.name}</h3>
-                        <p className="quiz-description">{category.description}</p>
                         <img src={category.image} alt={category.name} className="category-image" />
+                        <p className="quiz-description">{category.description}</p>
+                        
                         <button className="select-category-button" onClick={() => onSelectCategory(category.name)}>
                         Let's dive in
                         </button>

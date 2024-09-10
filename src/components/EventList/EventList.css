@@ -1,10 +1,8 @@
-
 .video-container {
   width: 100%;
   position: relative;
   overflow: hidden;
   margin-bottom: 1rem;
- 
 }
 
 .video {
@@ -12,20 +10,21 @@
   height: 600px;
   display: block;
   object-fit: cover;
-  padding-bottom:30px;
-  padding-top:30px;
+  padding-bottom: 30px;
+  padding-top: 30px;
 }
 
-.head{
+.head {
   padding-top: 50px;
 }
 
-.para{
+.para {
   padding-bottom: 80px;
 }
+
 .card-group {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Four cards per row */
   gap: 15px; 
 }
 
@@ -47,8 +46,8 @@
   border: 1px solid #9e74bd;
 }
 
-hr{
-  color:#8e44ad;
+hr {
+  color: #8e44ad;
 }
 
 .card-overlay {
@@ -82,8 +81,26 @@ hr{
   color: #fff; 
 }
 
-.search{
+.search {
   margin-top: 40px;
   margin-bottom: 40px;
 }
 
+
+@media (max-width: 1200px) {
+  .card-group {
+    grid-template-columns: repeat(3, 1fr); 
+  }
+}
+
+@media (max-width: 900px) {
+  .card-group {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media (max-width: 600px) {
+  .card-group {
+    grid-template-columns: 1fr;
+  }
+}
