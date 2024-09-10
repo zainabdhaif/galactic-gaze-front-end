@@ -30,7 +30,6 @@ const EventDetails = (props) => {
     <main className="container mt-4">
       <h2 className="display-4">{event.name}</h2>
       
-        
         <div className="cover">
       
             <video 
@@ -82,6 +81,39 @@ const EventDetails = (props) => {
   ) : null
 ) : null}
       </div>
+      <div className="observation-under-event">
+  <h4>Observations:</h4>
+  {event.observations && event.observations.length > 0 ? (
+    <div className="row">
+      {event.observations.map((observation, index) => (
+        <div className="col-md-4 mb-3" key={index}>
+          <div className="card shadow-sm">
+            <img src={observation.image} className="card-img-top" alt="Observation" />
+            <div className="card-body">
+              <h5 className="card-title">Observation {index + 1}</h5>
+              <p className="card-text"><strong>Notes:</strong> {observation.notes}</p>
+              <p className="card-text"><strong>Visibility:</strong> {observation.visibility}</p>
+              {observation.objectives && observation.objectives.length > 0 ? (
+                <div>
+                  <strong>Objectives:</strong>
+                  <ul className="list-unstyled">
+                    {observation.objectives.map((objective, objIndex) => (
+                      <li key={objIndex}>- {objective}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <p>No objectives available.</p>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  ) : (
+    <p>No observations available.</p>
+  )}
+</div>
     </main>
   );
 };
