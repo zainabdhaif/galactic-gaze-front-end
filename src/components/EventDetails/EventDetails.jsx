@@ -87,9 +87,9 @@ const EventDetails = (props) => {
     <div className="row">
       {event.observations.map((observation, index) => (
         <div className="col-md-4 mb-3" key={index}>
-          <div className="card shadow-sm">
+          <div className="card-obs shadow-sm">
             <img src={observation.image} className="card-img-top" alt="Observation" />
-            <div className="card-body">
+            <div className="card-body-obs">
               <h5 className="card-title">Observation {index + 1}</h5>
               <p className="card-text"><strong>Notes:</strong> {observation.notes}</p>
               <p className="card-text"><strong>Visibility:</strong> {observation.visibility}</p>
@@ -103,7 +103,7 @@ const EventDetails = (props) => {
                   </ul>
                 </div>
               ) : (
-                <p>No objectives available.</p>
+                <p></p>
               )}
             </div>
           </div>

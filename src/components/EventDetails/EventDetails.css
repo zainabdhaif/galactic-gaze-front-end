@@ -45,7 +45,7 @@
   border-radius: 8px;
 }
 
-.card {
+.card-obs {
   border: 1px solid #dee2e6; /* Light border for cards */
   border-radius: 8px; /* Rounded corners */
 }
@@ -55,7 +55,7 @@
   border-top-right-radius: 8px;
 }
 
-.card-body {
+.card-body-obs {
   background-color: #ffffff; /* White background for card body */
 }
 
