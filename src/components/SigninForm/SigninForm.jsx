@@ -4,7 +4,7 @@ import authService from '../../services/authService.js';
 
 const SigninForm = (props) => {
   const navigate = useNavigate();
-  const [message, setMessage] = useState(['']);
+  const [message, setMessage] = useState();
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -60,11 +60,19 @@ const SigninForm = (props) => {
                 onChange={handleChange}
               />
             </div>
-            <div className="d-flex justify-content-between">
-              <button type="submit" className="btn btn-primary">Log In</button>
-              <Link to="/">
-                <button type="button" className="btn btn-secondary">Cancel</button>
-              </Link>
+            <div className="row flex-fill">
+              <div className="col">
+                <button type="submit" className="btn btn-primary w-100 m-0 mt-2 p-2">
+                  Sign Up
+                </button>
+              </div>
+              <div className="col">
+                <Link to="/" className='flex-fill'>
+                  <button type="button" className="btn btn-secondary w-100 m-0 mt-2 p-2">
+                    Cancel
+                  </button>
+                </Link>
+              </div>
             </div>
           </form>
         </div>
