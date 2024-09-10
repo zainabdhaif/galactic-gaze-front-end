@@ -58,57 +58,58 @@ const Quiz = () => {
     setIsAnswerCorrect(null);
   };
 
-  return (<>
-    {!selectedCategory ? (
-      <CategorySelection onSelectCategory={handleCategorySelect} />
-    ) : (
-      <>
-        {showScore ? (
-          <div className="score-container">
-            <h2>Your score: {score} out of {filteredQuestions.length}</h2>
-            <button className="play-again" onClick={handleRedoQuiz}>
-              Play Again
-            </button>
-          </div>
-        ) : (
-          <div className="quiz-container">
-            <h2 className="question">
-              {filteredQuestions[currentQuestionIndex].question}
-            </h2>
-            <div className="image-container">
-              <img
-                src="" 
-                alt="Quiz illustration"
-                className="quiz-image"
-              />
-            </div>
-            <div className="options-container">
-              {filteredQuestions[currentQuestionIndex].options.map((option, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleOptionClick(option)}
-                  disabled={answerFeedback}
-                  className="option-button"
-                >
-                  {option}
-                </button>
-              ))}
-            </div>
-            {answerFeedback && (
-              <h6 className={isAnswerCorrect === false ? "incorrect" : "correct"}>
-                {answerFeedback}
-              </h6>
-            )}
-            {answerFeedback && (
-              <button className="next-button" onClick={handleNextQuestion}>
-                Next Question
+  return (
+    <>
+      {!selectedCategory ? (
+        <CategorySelection onSelectCategory={handleCategorySelect} />
+      ) : (
+        <>
+          {showScore ? (
+            <div className="score-container">
+              <h2>Your score: {score} out of {filteredQuestions.length}</h2>
+              <button className="play-again" onClick={handleRedoQuiz}>
+                Play Again
               </button>
-            )}
-          </div>
-        )}
-      </>
-    )}
-  </>
+            </div>
+          ) : (
+            <div className="quiz-container">
+              <h2 className="question">
+                {filteredQuestions[currentQuestionIndex].question}
+              </h2>
+              <div className="image-container">
+                <img
+                  src={filteredQuestions[currentQuestionIndex].Image} // Correctly access the image
+                  alt="Quiz illustration"
+                  className="quiz-image"
+                />
+              </div>
+              <div className="options-container">
+                {filteredQuestions[currentQuestionIndex].options.map((option, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleOptionClick(option)}
+                    disabled={answerFeedback}
+                    className="option-button"
+                  >
+                    {option}
+                  </button>
+                ))}
+              </div>
+              {answerFeedback && (
+                <h6 className={isAnswerCorrect === false ? "incorrect" : "correct"}>
+                  {answerFeedback}
+                </h6>
+              )}
+              {answerFeedback && (
+                <button className="next-button" onClick={handleNextQuestion}>
+                  Next Question
+                </button>
+              )}
+            </div>
+          )}
+        </>
+      )}
+    </>
   );
 };
 
