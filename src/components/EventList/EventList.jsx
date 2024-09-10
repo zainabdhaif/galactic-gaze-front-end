@@ -60,6 +60,7 @@ const EventList = () => {
         />
       </div>
 
+  
       <div className="card-group">
         {filteredEvents.map((event) => (
           <div 
@@ -88,3 +89,7 @@ const EventList = () => {
 };
 
 export default EventList;
+
+
+
+

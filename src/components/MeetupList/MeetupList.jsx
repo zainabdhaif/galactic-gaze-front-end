@@ -2,10 +2,13 @@ import meetupService from "../../services/meetupService";
 import { useState, useEffect } from "react";
 import authService from "../../services/authService";
 import { Link } from "react-router-dom";
+import Swal from 'sweetalert2';
+import {useNavigate } from 'react-router-dom';
 
 const MeetupList = () => {
   const [meetups, setMeetups] = useState([]);
   const user = authService.getUser();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getMeetups = async () => {
@@ -20,9 +23,28 @@ const MeetupList = () => {
     return date.toLocaleString();
   };
 
-  const handleDelete = (meetupID) => {
-    meetupService.deleteEvent(meetupID);
-    location.reload();
+  const handleDelete = async (meetupID) => {
+    const result = await Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#6a0dad',
+      cancelButtonColor: '#8b0000',
+      confirmButtonText: 'Yes, delete it!'
+    });
+  
+    if (result.isConfirmed) {
+      try {
+        await meetupService.deleteEvent(meetupID); // Assuming deleteEvent is an async function
+        Swal.fire('Deleted!', 'The meetup has been deleted.', 'success');
+        navigate('/meetups'); 
+        location.reload();
+      } catch (error) {
+        console.error("Error deleting meetup:", error);
+        Swal.fire('Error!', 'There was an error deleting the meetup.', 'error');
+      }
+    }
   };
 
   return (
