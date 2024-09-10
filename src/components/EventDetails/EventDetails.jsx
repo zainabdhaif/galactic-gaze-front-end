@@ -23,28 +23,29 @@ const EventDetails = (props) => {
   }, [eventId]);
 
   if (!event) {
-    return <main className="container mt-4"><h3>Loading...</h3></main>;
+    return (
+      <main className="container mt-4">
+        <h3>Loading...</h3>
+      </main>
+    );
   }
 
   return (
     <main className="container mt-4">
       <h2 className="display-4">{event.name}</h2>
-      
-        
-        <div className="cover">
-      
-            <video 
-              className="event-video"
-              src={event.video} 
-              autoPlay 
-              muted 
-              loop 
-              playsInline 
-              style={{ width: '100%', height: '300px', objectFit: 'cover' }}
-            />
-        
-        </div>
-    
+
+      <div className="cover">
+        <video
+          className="event-video"
+          src={event.video}
+          autoPlay
+          muted
+          loop
+          playsInline
+          style={{ width: "100%", height: "300px", objectFit: "cover" }}
+        />
+      </div>
+
       <div className="row mb-4">
         <div className="col-md-8">
           <p>Date & Time: {new Date(event.datetime).toLocaleString()}</p>
@@ -53,7 +54,6 @@ const EventDetails = (props) => {
           <p>Coordinates: {event.coordinates}</p>
         </div>
       </div>
-       
       <div className="d-flex justify-content-between">
         {user ? (
           user.type === "admin" ? (
@@ -78,17 +78,56 @@ const EventDetails = (props) => {
             </div>
           ) : user.type === "club" ? (
             <Link key={eventId} to={`/events/${eventId}/meetups/new`}>
-              <button>Add meetup</button>
+              <button className="btn btn-primary mt-3">Add Meetup</button>
             </Link>
           ) : user.type === "user" ? (
-            <button
-              className="btn btn-secondary mt-3"
-              onClick={() => navigate(`/events/${eventId}/observations/new`)}
-            >
-              Add Observation
-            </button>
+            <Link key={eventId} to={`/events/${eventId}/observations/new`}>
+              <button className="btn btn-primary mt-3">Add Observation</button>
+            </Link>
           ) : null
         ) : null}
+      </div>
+      <div className="observation-under-event">
+        <h4>Observations:</h4>
+        {event.observations && event.observations.length > 0 ? (
+          <div className="row">
+            {event.observations.map((observation, index) => (
+              <div className="col-md-4 mb-3" key={index}>
+                <div className="card-obs shadow-sm">
+                  <img
+                    src={observation.image}
+                    className="card-img-top"
+                    alt="Observation"
+                  />
+                  <div className="card-body-obs">
+                    <h5 className="card-title">Observation {index + 1}</h5>
+                    <p className="card-text">
+                      <strong>Notes:</strong> {observation.notes}
+                    </p>
+                    <p className="card-text">
+                      <strong>Visibility:</strong> {observation.visibility}
+                    </p>
+                    {observation.objectives &&
+                    observation.objectives.length > 0 ? (
+                      <div>
+                        <strong>Objectives:</strong>
+                        <ul className="list-unstyled">
+                          {observation.objectives.map((objective, objIndex) => (
+                            <li key={objIndex}>- {objective}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : (
+                      <p></p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p>No observations available.</p>
+        )}
       </div>
     </main>
   );

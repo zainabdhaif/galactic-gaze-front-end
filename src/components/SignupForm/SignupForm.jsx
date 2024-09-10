@@ -42,7 +42,7 @@ const SignupForm = (props) => {
       <div className="row justify-content-center">
         <div className="col-md-6">
           <h1 className="text-center mb-4">Sign Up</h1>
-          {message && <div className="alert alert-danger">{message}</div>}
+          {message && <div className="alert-danger">{message}</div>}
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="username" className="form-label">Username:</label>
