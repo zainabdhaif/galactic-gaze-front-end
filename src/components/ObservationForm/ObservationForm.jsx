@@ -64,12 +64,6 @@ const ObservationForm = () => {
       <main className="container-form text-white mt-4 ">
         <div className="row">
           <div className="col-md-6">
-            <img
-              src={eventDetails.image}
-              alt={eventDetails.name}
-              className="img-fluid rounded mb-3"
-            />
-            <h3 className="mb-3">{eventDetails.name}</h3>
             <p className="lead">{eventDetails.description}</p>
           </div>
           <div className="col-md-6">
