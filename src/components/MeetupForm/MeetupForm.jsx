@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import meetupService from "../../services/meetupService";
 import eventService from "../../services/eventService";
+import Swal from 'sweetalert2';
 
 const MeetupForm = () => {
   const { eventid, meetupid } = useParams();
@@ -41,19 +42,49 @@ const MeetupForm = () => {
     setMeetup((prevState) => ({ ...prevState, [name]: value }));
   };
 
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     if (meetupid) {
+  //       await meetupService.update(meetupid, meetup);
+  //       navigate("/meetups");
+  //     } else if (eventid) {
+  //       await meetupService.add(eventid, meetup);
+  //       console.log(eventid, meetup);
+  //       navigate("/meetups");
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (meetupid) {
+        // Update existing event
         await meetupService.update(meetupid, meetup);
-        navigate("/meetups");
-      } else if (eventid) {
+        Swal.fire({
+          title: 'Meetup Updated!',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        }).then(() => {
+          navigate("/meetups");
+        });
+      } else {
+        // Add a new event (assuming you have a method for that)
         await meetupService.add(eventid, meetup);
-        console.log(eventid, meetup);
-        navigate("/meetups");
+        Swal.fire({
+          title: 'Meetup Created!',
+          icon: 'success',
+          showConfirmButton: false,
+          timer: 1500
+        }).then(() => {
+          navigate("/meetups");
+        });
       }
     } catch (error) {
-      console.error(error);
+      console.error("Error processing meetup:", error);
     }
   };
 
