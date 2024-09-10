@@ -1,4 +1,3 @@
-// src/Quiz.jsx
 import { useState } from "react";
 import "./Quiz.css";
 import CategorySelection from "./CategorySelection";

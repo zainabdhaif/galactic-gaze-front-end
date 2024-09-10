@@ -1,3 +1,14 @@
+.description{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-top: 50px;
+    color: dimgrey;
+}
+
+.h5{
+    color: rgb(228, 228, 228);
+}
+
 .category-selection {
     display: flex;
     flex-direction: column;
