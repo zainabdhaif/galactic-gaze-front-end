@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const SignupForm = (props) => {
   const navigate = useNavigate();
-  const [message, setMessage] = useState(['']);
+  const [message, setMessage] = useState();
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -77,11 +77,15 @@ const SignupForm = (props) => {
                 onChange={handleChange}
               />
             </div>
-            <div className="d-flex justify-content-between">
-              <button type="submit" className="btn btn-primary" disabled={isFormInvalid()}>Sign Up</button>
+            <div className="row flex-fill">
+              <div className="col">
+              <button type="submit" className="btn btn-primary w-100 m-0 mt-2 p-2" disabled={isFormInvalid()}>Sign Up</button>
+              </div>
+              <div className="col">
               <Link to="/">
-                <button type="button" className="btn btn-secondary">Cancel</button>
+                <button type="button" className="btn btn-secondary w-100 m-0 mt-2 p-2">Cancel</button>
               </Link>
+              </div>
             </div>
           </form>
         </div>
