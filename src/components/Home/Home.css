@@ -38,19 +38,21 @@ body {
   .explore, .quiz {
     padding: 10px 20px;
     margin-right: 10px;
-    border: none;
     border-radius: 5px;
   }
   
   .explore {
     background-color: #6a0dad;
     color: #fff;
+    border: none;
+    cursor: pointer;
   }
   
   .quiz {
     background-color: transparent;
-    color: #fff;
-    border: 1px bold White;
+    color: #6a0dad;
+    border: 1px solid #6a0dad;
+    
   }
   
   .image {
@@ -59,7 +61,7 @@ body {
     max-height: 400px; 
     object-fit: cover; 
     margin-left: 20px; 
-    border: 3px solid #6a0dad; 
+    border: 2px solid #6a0dad; 
     border-radius: 10px; 
   }
   
@@ -112,17 +114,14 @@ body {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
-  }
-  
-  .gaze-button:hover {
-    background-color: #f0f0f0; 
-  }
+}
 
-
+.gaze-button:hover {
+    background-color: #2f134b; 
+}
   .discover-section {
     display: flex;
     align-items: center; 

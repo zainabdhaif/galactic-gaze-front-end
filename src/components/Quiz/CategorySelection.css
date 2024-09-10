@@ -63,8 +63,9 @@
 
 .category-image {
     width: 100%;
-    height: auto;
-    margin-top: 10px;
+    height: 200px; 
+    object-fit: cover;
+    display: block;
 }
 
 .quiz-card button {
@@ -73,14 +74,11 @@
     width: 100%;
     padding: 15px;
     cursor: pointer;
-    color: inherit;
+    color: #6a0dad;
     text-align: center;
+    text-decoration: underline #6a0dad;
 }
 
-.quiz-card button:hover {
-    background-color:#6a0dad; 
-    border: px solid #6a0dad; 
-}
 
 
 @media (max-width: 900px) {
