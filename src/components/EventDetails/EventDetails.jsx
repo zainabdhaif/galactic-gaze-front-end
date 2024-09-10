@@ -82,30 +82,28 @@ const EventDetails = (props) => {
 ) : null}
       </div>
       <div className="observation-under-event">
-  <h4>Observations:</h4>
+  <h4 className="observations-title">Observations:</h4>
   {event.observations && event.observations.length > 0 ? (
-    <div className="row">
+    <div className="observations-container">
       {event.observations.map((observation, index) => (
-        <div className="col-md-4 mb-3" key={index}>
-          <div className="card-obs shadow-sm">
-            <img src={observation.image} className="card-img-top" alt="Observation" />
-            <div className="card-body-obs">
-              <h5 className="card-title">Observation {index + 1}</h5>
-              <p className="card-text"><strong>Notes:</strong> {observation.notes}</p>
-              <p className="card-text"><strong>Visibility:</strong> {observation.visibility}</p>
-              {observation.objectives && observation.objectives.length > 0 ? (
-                <div>
-                  <strong>Objectives:</strong>
-                  <ul className="list-unstyled">
-                    {observation.objectives.map((objective, objIndex) => (
-                      <li key={objIndex}>- {objective}</li>
-                    ))}
-                  </ul>
-                </div>
-              ) : (
-                <p></p>
-              )}
-            </div>
+        <div className="card-obs" key={index}>
+          <div className="card-header">
+            <img src={observation.image} className="card-top" alt="Observation" />
+            <h5 className="card-title">Observation {index + 1}</h5>
+          </div>
+          <div className="card-body-obs">
+            <p className="card-text"><strong>Notes:</strong> {observation.notes}</p>
+            <p className="card-text"><strong>Visibility:</strong> {observation.visibility}</p>
+            {observation.objectives && observation.objectives.length > 0 ? (
+              <div>
+                <strong>Objectives:</strong>
+                <ul className="list-unstyled">
+                  {observation.objectives.map((objective, objIndex) => (
+                    <li key={objIndex}>- {objective}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </div>
         </div>
       ))}
