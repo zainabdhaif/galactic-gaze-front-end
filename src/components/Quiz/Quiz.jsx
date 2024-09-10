@@ -84,6 +84,7 @@ const Quiz = () => {
                       <button
                         key={index}
                         onClick={() => handleOptionClick(option)}
+                        disabled={answerFeedback}
                       >
                         {option}
                       </button>
