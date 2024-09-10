@@ -79,24 +79,14 @@ const EventEdit = () => {
               type="text"
               name="name"
               id="name-input"
-              className="form-input form-control"
+              className="form-input form-control "
               value={formData.name}
               onChange={handleChange}
               placeholder="Event Name"
               required
             />
           </div>
-          <div className="col-6 mb-3">
-            <label htmlFor="description-input" className="form-label">Description</label>
-            <textarea
-              name="description"
-              id="description-input"
-              className="form-input form-control"
-              value={formData.description}
-              onChange={handleChange}
-              placeholder="Event Description"
-            />
-          </div>
+         
         </div>
         <div className="row">
           <div className="col-6 mb-3">
