@@ -29,10 +29,12 @@
 }
 
 .card {
+  border-radius: 0.5rem;
   position: relative;
   background-color: transparent;
   border: none;
-  border-radius: 0.5rem;
+  width:100%;
+  
 }
 
 .card-img-body {
@@ -61,6 +63,7 @@ hr {
   align-items: center;
   justify-content: center;
   color: #fff;
+  
 }
 
 .card-body {
