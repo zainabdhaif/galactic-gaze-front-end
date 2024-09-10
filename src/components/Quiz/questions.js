@@ -1,137 +1,197 @@
 const questions = [
-    {
-        question: "What is the largest planet in our solar system?",
-        options: ["Earth", "Jupiter", "Saturn", "Mars"],
-        answer: "Jupiter",
-        category: "Planets",
-    },
-    {
-        question: "What is the name of the fifth planet from the Sun?",
-        options: ["Venus", "Earth", "Mars", "Jupiter"],
-        answer: "Jupiter",
-        category: "Planets",
-    },
-    {
-        question: "Which planet is known for its rings?",
-        options: ["Mars", "Saturn", "Neptune", "Uranus"],
-        answer: "Saturn",
-        category: "Planets",
-    },
-    {
-        question: "What is the hottest planet in our solar system?",
-        options: ["Venus", "Mercury", "Mars", "Jupiter"],
-        answer: "Venus",
-        category: "Planets",
-    },
-    {
-        question: "Which planet is known as the Red Planet?",
-        options: ["Earth", "Jupiter", "Saturn", "Mars"],
-        answer: "Mars",
-        category: "Planets",
-    },
 
-    {
-        question: "What is the closest star to Earth?",
-        options: ["Proxima Centauri", "Sirius", "Alpha Centauri", "Betelgeuse"],
-        answer: "Proxima Centauri",
-        category: "Stars",
-    },
-    {
-        question: "What are the main components of stars?",
-        options: [
-            "Hydrogen and Helium",
-            "Oxygen and Carbon",
-            "Nitrogen and Argon",
-            "Sodium and Potassium",
-        ],
-        answer: "Hydrogen and Helium",
-        category: "Stars",
-    },
-    {
-        question: "What is a black hole?",
-        options: [
-            "A collapsed star",
-            "A giant planet",
-            "A distant galaxy",
-            "A comet",
-        ],
-        answer: "A collapsed star",
-        category: "Stars",
-    },
-    {
-        question: "Which star is known as the North Star?",
-        options: ["Sirius", "Polaris", "Betelgeuse", "Rigel"],
-        answer: "Polaris",
-        category: "Stars",
-    },
-    {
-        question: "What is the main sequence star that our solar system orbits?",
-        options: ["Alpha Centauri", "Sirius", "Sun", "Betelgeuse"],
-        answer: "Sun",
-        category: "Stars",
-    },
+  {
+    question: "How long does it take the Earth to travel once around the Sun?",
+    options: ["A year", "A day", "12 hours"],
+    answer: "A year",
+    category: "Explore Our Special Planet 🌍",
+  },
+  {
+    question:
+      "Venus and Earth have similar size and composition. Yet Venus is much, much hotter. Why?",
+    options: [
+      "Venus's magnetic field is very strong",
+      "Venus's rotation is very fast",
+      "Venus's atmosphere is very thick",
+    ],
+    answer: "Venus's atmosphere is very thick",
+    category: "Explore Our Special Planet 🌍",
+  },
+  {
+    question: "What protects us from most space rocks?",
+    options: ["Atmosphere", "Moon", "Magnetosphere"],
+    answer: "Atmosphere",
+    category: "Explore Our Special Planet 🌍",
+  },
+  {
+    question:
+      "The Earth is the only rocky planet in the Solar System where you can use a traditional compass. Why?",
+    options: [
+      "There is no North Pole on other planets",
+      "Earth has a magnetic field",
+      "Compasses are forbidden beyond Earth",
+    ],
+    answer: "Earth has a magnetic field",
+    category: "Explore Our Special Planet 🌍",
+  },
+  {
+    question:
+      "Which celestial body could potentially host life, like the Earth?",
+    options: ["Jupiter", "Mercury", "Saturn's moon Enceladus"],
+    answer: "Saturn's moon Enceladus",
+    category: "Explore Our Special Planet 🌍",
+  },
 
-    {
-        question: "Which galaxy is known as the Milky Way's closest neighbor?",
-        options: ["Andromeda", "Triangulum", "Whirlpool", "Sombrero"],
-        answer: "Andromeda",
-        category: "Galaxies",
-    },
-    {
-        question: "What type of galaxy is the Milky Way?",
-        options: ["Elliptical", "Spiral", "Irregular", "Lenticular"],
-        answer: "Spiral",
-        category: "Galaxies",
-    },
-    {
-        question: "What is the largest galaxy in the local group?",
-        options: ["Milky Way", "Andromeda", "Triangulum", "Whirlpool"],
-        answer: "Andromeda",
-        category: "Galaxies",
-    },
-    {
-        question: "How many galaxies are estimated to be in the observable universe?",
-        options: ["1 million", "100 billion", "2 trillion", "500 billion"],
-        answer: "2 trillion",
-        category: "Galaxies",
-    },
-    {
-        question: "Which galaxy is known for its supermassive black hole at its center?",
-        options: ["Milky Way", "Andromeda", "Sombrero", "Whirlpool"],
-        answer: "Milky Way",
-        category: "Galaxies",
-    },
+  {
+    question: "What is the Sun mostly made of?",
+    options: ["Hydrogen", "Helium", "Oxygen"],
+    answer: "Hydrogen",
+    category: "Discover the Sun's Secrets ☀️",
+  },
+  {
+    question: "What is the Sun's surface temperature?",
+    options: [
+      "5,500 degrees Celsius",
+      "10,000 degrees Celsius",
+      "15,000 degrees Celsius",
+    ],
+    answer: "5,500 degrees Celsius",
+    category: "Discover the Sun's Secrets ☀️",
+  },
+  {
+    question:"What is the second most abundant element in the Sun after hydrogen?",
+    options: ["Helium", "Oxygen", "Carbon"],
+    answer: "Helium",
+    category: "Discover the Sun's Secrets ☀️",
+  },
+  {
+    question: "How much of the Solar System's mass does the Sun comprise?",
+    options: ["About 75%", "About 50%", "About 99%"],
+    answer: "About 99%",
+    category: "Discover the Sun's Secrets ☀️",
+  },
+  {
+    question:"What is the distance between the Sun and Earth called in astronomy?",
+    options: ["Solar mile", "Astronomical unit", "Light year"],
+    answer: "Astronomical unit",
+    category: "Discover the Sun's Secrets ☀️",
+  },
 
-    {
-        question: "What phenomenon occurs when the moon passes between the Earth and the Sun?",
-        options: ["Lunar Eclipse", "Solar Eclipse", "Meteor Shower", "Comet"],
-        answer: "Solar Eclipse",
-        category: "Celestial Events",
-    },
-    {
-        question: "What is a lunar eclipse?",
-        options: ["When the Earth passes between the Sun and the Moon", "When the Moon passes between the Earth and the Sun", "A meteor shower", "A solar eclipse"],
-        answer: "When the Earth passes between the Sun and the Moon",
-        category: "Celestial Events",
-    },
-    {
-        question: "What is a meteor shower?",
-        options: ["A shower of rain", "A series of meteors entering Earth's atmosphere", "A solar flare", "An eclipse"],
-        answer: "A series of meteors entering Earth's atmosphere",
-        category: "Celestial Events",
-    },
-    {
-        question: "What is a comet primarily made of?",
-        options: ["Rock and metal", "Ice and dust", "Gas and plasma", "Stardust"],
-        answer: "Ice and dust",
-        category: "Celestial Events",
-    },
-    {
-        question: "What is the term for the path a comet takes around the Sun?",
-        options: ["Orbit", "Rotation", "Trajectory", "Pathway"],
-        answer: "Orbit",
-        category: "Celestial Events",
-    },
+{
+    question:"All the Solar System planets have moons.",
+    options: ["True", "False"],
+    answer: "False",
+    category: "Astronomy Facts: True or False? 🌌",
+}, 
+{
+    question:"There are more stars in the Universe than grains of sand on all of the Earth’s beaches.",
+    options: ["True", "False"],
+    answer: "True",
+    category: "Astronomy Facts: True or False? 🌌",
+},
+{
+    question:"Planets, stars, and galaxies comprise only 5% of all the matter in the Universe.",
+    options: ["True", "False"],
+    answer: "True",
+    category: "Astronomy Facts: True or False? 🌌",
+},
+{
+    question:"The phases of the Moon are caused by the Earth's shadow.",
+    options: ["True", "False"],
+    answer: "False",
+    category: "Astronomy Facts: True or False? 🌌",
+},
+{
+    question:"Mercury, the closest planet to the Sun, is also the hottest planet in the Solar System.",
+    options: ["True", "False"],
+    answer: "False",
+    category: "Astronomy Facts: True or False? 🌌",
+},
+{
+    question:"What is the hottest planet in the Solar System?",
+    options: ["Mercury", "Venus", "Mars"],
+    answer: "Venus",
+    category: "Solar System Objects 🪐",
+},
+{
+    question:"What is the largest moon in the Solar System?",
+    options: ["Titan", "Ganymede", "Callisto"],
+    answer: "Ganymede",
+    category: "Solar System Objects 🪐",
+},
+{
+    question:"What is the fastest-spinning large body in the Solar System?",
+    options:["Apophis","Europa","Haumea"],
+    answer:"Haumea",
+    category:"Solar System Objects 🪐"
+},
+{
+    question:"Which planet has the sharpest temperature changes?",
+    options:["Mercury","Venus","Uranus"],
+    answer:"Mercury",
+    category:"Solar System Objects 🪐"
+},
+{
+    question:"Some Solar System planets have never been approached by spacecraft.",
+    options:["True","False"],
+    answer:"False",
+    category:"Space Exploration 🚀"
+},
+{
+    question:"The International Space Station is the most expensive object ever built.",
+    options:["True","False"],
+    answer:"True",
+    category:"Space Exploration 🚀"
+},  
+{
+    question:"Astronauts on the ISS become weightless because there's no gravity in space.",
+    options:["True","False"],
+    answer:"False",
+    category:"Space Exploration 🚀"  
+},
+{
+    question:"Astronauts grow taller in space.",
+    options:["True","False"],
+    answer:"True",
+    category:"Space Exploration 🚀"
+},
+{
+    question:"Apollo astronauts' footprints on the Moon have been already erased by the wind.",
+    options:["True","False"],
+    answer:"False",
+    category:"Space Exploration 🚀"
+},
+{
+    question:"There's a sudden streak of light across the sky. What did you likely witness?",
+    options:["Meteor","Comet","Asteroid"],
+    answer:"Meteor",
+    category:"How Good Are You at Stargazing?🌠"
+},
+{
+    question:"You observe a pale band of light stretching across the night sky from horizon to horizon. What is it?",
+    options:["Milky Way","Andromeda Galaxy","Orion Nebula"],
+    answer:"Milky Way",
+    category:"How Good Are You at Stargazing?🌠"
+},
+{
+    question:"You notice a rhythmically blinking object moving across the sky. What could this be?",
+    options:["Satellite","Airplane","Comet"],
+    answer:"Airplane",
+    category:"How Good Are You at Stargazing?🌠"
+},
+{
+    question:"You're trying to observe a faint object in the night sky. What technique can you use to see it better?",
+    options:["Look slightly away from the object","Stare directly at the object","Close one eye"],
+    answer:"Look slightly away from the object",
+    category:"How Good Are You at Stargazing?🌠"
+},
+{
+    question:"You see a bright yellowish dot that doesn’t twinkle. What object is it?",
+    options:["Jupiter","Venus","Mars"],
+    answer:"Jupiter",
+    category:"How Good Are You at Stargazing?🌠"
+}
+
 ];
 
 export default questions;
