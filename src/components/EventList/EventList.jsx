@@ -53,7 +53,7 @@ const EventList = () => {
       <div className="mb-4">
         <input
           type="text"
-          className="form-control"
+          className="form-control search"
           placeholder="Explore Events By Name or Date"
           value={searchTerm}
           onChange={handleSearchChange}
