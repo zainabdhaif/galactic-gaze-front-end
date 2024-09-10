@@ -1,7 +1,7 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import eventService from "../../services/eventService";
-import './EventDetails.css';
+import "./EventDetails.css";
 import authService from "../../services/authService";
 
 const EventDetails = (props) => {
@@ -55,35 +55,40 @@ const EventDetails = (props) => {
       </div>
        
       <div className="d-flex justify-content-between">
-      {user ? (
+        {user ? (
           user.type === "admin" ? (
-            <>
-              <button
-                className="btn btn-primary mt-3"
-                onClick={() => navigate(`/events/${eventId}/edit`)}
-              >
-                Edit
-              </button>
-              <button
-                className="btn btn-danger mt-3"
-                onClick={() => props.handleRemoveEvent(eventId)}
-              >
-                Delete
-              </button>
-            </>
+            <div className="row">
+              <div className="col">
+                <button
+                  className="btn btn-primary p-2"
+                  onClick={() => navigate(`/events/${eventId}/edit`)}
+                >
+                  Edit
+                </button>
+              </div>
+
+              <div className="col">
+                <button
+                  className="btn btn-danger p-2"
+                  onClick={() => props.handleRemoveEvent(eventId)}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
           ) : user.type === "club" ? (
-          <Link key={eventId} to={`/events/${eventId}/meetups/new`}>
-            <button>Add meetup</button>
-          </Link>
+            <Link key={eventId} to={`/events/${eventId}/meetups/new`}>
+              <button>Add meetup</button>
+            </Link>
+          ) : user.type === "user" ? (
+            <button
+              className="btn btn-secondary mt-3"
+              onClick={() => navigate(`/events/${eventId}/observations/new`)}
+            >
+              Add Observation
+            </button>
           ) : null
         ) : null}
-
-      <button
-          className="btn btn-secondary mt-3"
-          onClick={() => navigate(`/events/${eventId}/observations/new`)} 
-        >
-          Add Observation
-        </button>
       </div>
     </main>
   );
