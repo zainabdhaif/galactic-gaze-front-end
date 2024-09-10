@@ -36,6 +36,7 @@ const Home = () => {
     <div className="home">
       
       <main className="main">
+        
     <div className="video-background">
         <video autoPlay loop muted className="background-video">
             {/* <source src="https://cdn.pixabay.com/video/2022/10/30/137083-765727898_large.mp4" type="video/mp4" /> */}
@@ -62,12 +63,7 @@ const Home = () => {
     </div>
 </main>
 
-      <section className="upcoming-events">
-         <UpcomingEvents cards={events}/>
-      </section>
-
-
-      <div className="discover-section">
+   <div className="discover-section">
           <div className="discover-image">
             <img 
               src="https://cdn.pixabay.com/photo/2024/08/26/12/29/milky-way-8999255_1280.jpg" 
@@ -79,7 +75,14 @@ const Home = () => {
             <p>Where every star tells a story and every galaxy whispers secrets</p>
             <button className="learn-button">Learn About Our Home</button>
           </div>
-        </div>
+    </div>
+
+      <section className="upcoming-events">
+         <UpcomingEvents cards={events}/>
+      </section>
+
+
+      
 
       <div className="adventure-section">
       <img 

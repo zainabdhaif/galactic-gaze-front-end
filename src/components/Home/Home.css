@@ -72,6 +72,7 @@ body {
   
   .upcoming-events {
     padding: 90px;
+    
   }
   
   .upcoming-events h2 {
@@ -133,7 +134,7 @@ body {
     color: #fff;
     padding: 30px;
     border-radius: 10px; 
-    margin: 20px 0; 
+    margin: 100px 0; 
     margin-left: 20px;
     margin-right: 20px;
   }
