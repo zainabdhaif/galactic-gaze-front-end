@@ -48,7 +48,7 @@ const MySky = () => {
                 )}
                 <div className="card-body">
                   <h5 className="card-title mysky-card-title">
-                    <strong>Event:</strong> {observation.eventid.name}
+                    Event: {observation.eventid.name}
                   </h5>
                   <Link to={`/observations/${observation._id}`} className="btn mysky-view-btn">
                     View Observation
