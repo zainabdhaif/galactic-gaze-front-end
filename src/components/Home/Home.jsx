@@ -1,9 +1,23 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import UpcomingEvents from '../EventCards/EventCards';
+import { useState, useEffect } from 'react';
+import UpcomingEvents from '../UpcomingEvents/UpcomingEvents';
+import eventService from '../../services/eventService';
+
 import './Home.css';
 
 const Home = () => {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const fetchAllEvents = async () => {
+      const eventsData = await eventService.index();
+      setEvents(eventsData);
+    };
+    
+    fetchAllEvents();
+  }, []);
+  
   const navigate = useNavigate();
 
   const handleExploreClick = () => {
@@ -49,7 +63,7 @@ const Home = () => {
     
       </main>
       <section className="upcoming-events">
-         <UpcomingEvents/>
+         <UpcomingEvents cards={events}/>
       </section>
 
 
