@@ -1,4 +1,3 @@
-// src/Quiz.jsx
 import { useState } from "react";
 import "./Quiz.css";
 import CategorySelection from "./CategorySelection";
@@ -85,6 +84,7 @@ const Quiz = () => {
                       <button
                         key={index}
                         onClick={() => handleOptionClick(option)}
+                        disabled={answerFeedback}
                       >
                         {option}
                       </button>
