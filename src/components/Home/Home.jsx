@@ -32,6 +32,10 @@ const Home = () => {
     navigate('/quiz'); 
   };
 
+  const handleUniverseClick = () => {
+    navigate('/universe'); 
+  }
+
   return (
     <div className="home">
       
@@ -73,7 +77,7 @@ const Home = () => {
           <div className="discover-text">
             <h2>Discover the universe</h2>
             <p>Where every star tells a story and every galaxy whispers secrets</p>
-            <button className="learn-button">Learn About Our Home</button>
+            <button onClick={handleUniverseClick} className="learn-button">Learn About Our Home</button>
           </div>
     </div>
 

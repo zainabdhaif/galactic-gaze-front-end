@@ -74,6 +74,7 @@ const deleteEvent = async (meetupID) => {
                 'Content-Type': 'application/json',
             }
         })
+        return res.json();
     } catch (error) {
         console.error(error);
     }

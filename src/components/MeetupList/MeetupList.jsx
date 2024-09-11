@@ -1,12 +1,16 @@
 import meetupService from "../../services/meetupService";
 import { useState, useEffect } from "react";
 import authService from "../../services/authService";
-import { Link } from "react-router-dom";
-import Swal from 'sweetalert2';
-import {useNavigate } from 'react-router-dom';
+import { Link, useFetcher } from "react-router-dom";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import BookingList from "../BookingList/BookingList";
+import bookingService from "../../services/bookingService";
 
 const MeetupList = () => {
   const [meetups, setMeetups] = useState([]);
+  const [bookings, setBookings] = useState([]);
+
   const user = authService.getUser();
   const navigate = useNavigate();
 
@@ -18,6 +22,20 @@ const MeetupList = () => {
     getMeetups();
   }, []);
 
+  useEffect(() => {
+    const fetchBookings = async () => {
+      try {
+        const id = user.id;
+        const userBookings = await bookingService.index(id);
+        setBookings(userBookings);
+      } catch (error) {
+        console.error("Error fetching meetups:", error);
+      }
+    };
+
+    fetchBookings(); // Add a semicolon here
+  }, [user.id]);
+
   const formatDateTime = (datetime) => {
     const date = new Date(datetime);
     return date.toLocaleString();
@@ -25,32 +43,48 @@ const MeetupList = () => {
 
   const handleDelete = async (meetupID) => {
     const result = await Swal.fire({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       text: "You won't be able to revert this!",
-      icon: 'warning',
+      icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: '#6a0dad',
-      cancelButtonColor: '#8b0000',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonColor: "#6a0dad",
+      cancelButtonColor: "#8b0000",
+      confirmButtonText: "Yes, delete it!",
     });
-  
+
     if (result.isConfirmed) {
       try {
         await meetupService.deleteEvent(meetupID); // Assuming deleteEvent is an async function
-        Swal.fire('Deleted!', 'The meetup has been deleted.', 'success');
-        navigate('/meetups'); 
+        Swal.fire("Deleted!", "The meetup has been deleted.", "success");
+        navigate("/meetups");
         location.reload();
       } catch (error) {
         console.error("Error deleting meetup:", error);
-        Swal.fire('Error!', 'There was an error deleting the meetup.', 'error');
+        Swal.fire("Error!", "There was an error deleting the meetup.", "error");
       }
     }
   };
 
-  if (!meetups) <h3>Loading...</h3>
+  if (!meetups) <h3>Loading...</h3>;
+
+  const handleBooking = async (meetupID) => {
+    try {
+      const bookingData = {
+        userid: user.id,
+        meetupid: meetupID,
+      };
+      await bookingService.create(bookingData);
+      console.log(bookingData);
+      navigate("/meetups");
+      location.reload();
+    } catch (error) {
+      console.error("Error creating booking:", error);
+    }
+  };
 
   return (
     <>
+      <BookingList bookings={bookings} />
       <div className="container mt-4">
         <h1 className="text-center mb-4">Upcoming Astro Gatherings</h1>
         <div className="row">
@@ -81,7 +115,12 @@ const MeetupList = () => {
                     <div className="d-flex justify-content-between">
                       {user ? (
                         user.type === "user" ? (
-                          <button className="btn btn-primary">Book Now</button>
+                          <button
+                            className="btn btn-primary"
+                            onClick={() => handleBooking(meetup._id)}
+                          >
+                            Book Now
+                          </button>
                         ) : user.type === "club" ? (
                           <div className="row">
                             <div className="col-6">

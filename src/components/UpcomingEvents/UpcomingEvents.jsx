@@ -1,5 +1,5 @@
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Ensure Bootstrap JS is imported
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './upcomingEvents.css';
