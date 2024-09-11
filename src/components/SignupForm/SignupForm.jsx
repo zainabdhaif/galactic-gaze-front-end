@@ -24,6 +24,10 @@ const SignupForm = (props) => {
     e.preventDefault();
     try {
       updateMessage('');
+      if (password !== passwordConf) {
+        updateMessage('Passwords do not match.');
+        return;
+      }
       const newUserResponse = await authService.signup(formData);
       props.setUser(newUserResponse.user);
       navigate('/');
@@ -39,7 +43,7 @@ const SignupForm = (props) => {
   };
 
   return (
-    <main className="container mt-5">
+    <main className="container-signin mt-5">
       <div className="row justify-content-center">
         <div className="col-md-6">
           <h1 className="text-center mb-4">Sign Up</h1>
@@ -95,9 +99,9 @@ const SignupForm = (props) => {
             </div>
             <div className="row flex-fill">
               <div className="col">
-                <button type="submit" className="btn btn-primary w-100 m-0 mt-2 p-2" disabled={isFormInvalid()}>
-                  Sign Up
-                </button>
+
+              <button type="submit" className="btn btn-primary w-100 m-0 mt-2 p-2">Sign Up</button>
+
               </div>
               <div className="col">
                 <Link to="/">

@@ -31,8 +31,12 @@ const signup = async (formData) => {
       body: JSON.stringify(formData),
     });
     const json = await res.json();
-    if (json.err) {
-      throw new Error(json.err);
+
+    if (!res.ok) {
+      if (res.status === 400) {
+        throw new Error('Username already exists');
+      }
+      throw new Error(json.error);
     }
     return json;
   } catch (err) {
