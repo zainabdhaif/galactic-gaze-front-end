@@ -1,14 +1,29 @@
 import { Link } from "react-router-dom";
 import "./NavBar.css";
+import { useEffect } from "react";
 
 const NavBar = ({ user, handleSignout }) => {
+  useEffect(() => {
+    const nav = document.querySelector("nav");
+    const ul = document.querySelector("ul");
+    window.onscroll = function () {
+      if (window.scrollY > 100) {
+        nav.classList.add("scrolled");
+        ul.classList.add("hidden");
+      } else {
+        nav.classList.remove("scrolled");
+        ul.classList.remove("hidden")
+      }
+    };
+  });
+
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
         <Link className="navbar-brand baloo-2-logo" to="/">
           Galactic<span className="dot">.</span>Gaze
         </Link>
-        <button
+        {/* <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -18,7 +33,7 @@ const NavBar = ({ user, handleSignout }) => {
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
-        </button>
+        </button> */}
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">

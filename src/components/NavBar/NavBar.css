@@ -21,7 +21,11 @@
   z-index: 1000; }
 
 .navbar.scrolled {
-  background-color: rgba(0, 0, 0, 0.8); 
+  background-color: transparent; 
+}
+
+ul.hidden{
+  display: none;
 }
 
 .navbar-brand {
