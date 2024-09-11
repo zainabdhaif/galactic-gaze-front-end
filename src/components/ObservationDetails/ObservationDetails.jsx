@@ -98,13 +98,12 @@ const user = authService.getUser();
             </div>
           </div>
         </div>
-       {user.id === observation.userid && 
-
-        <div className="button-container mt-4">
-          <button className="btn primary" onClick={handleEdit}>Edit</button>
-          <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
-        </div>
-}
+        {user.id === observation.userid._id && (
+      <div className="button-container mt-4">
+        <button className="btn primary" onClick={handleEdit}>Edit</button>
+        <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
+      </div>
+    )}
       </main>
 
     {/* <div className="obs-container">
