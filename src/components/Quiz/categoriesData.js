@@ -10,7 +10,7 @@ const categoriesWithImages = [
       description:"What is the Sun's real color? Why does it produce light? Is it a dwarf star or a giant star? Delve into the mysteries of the Sun and learn fascinating facts about our closest star. Are you ready to become a solar expert? Let's get started!"
      },
      {
-      name:"Astronomy Facts: True or False? 🌌",
+      name:"Astronomy Facts 🌌",
       image:"https://cdn.pixabay.com/photo/2024/04/05/18/49/space-8678011_640.jpg",
       description:"Is it true that there are more stars in the Universe than grains of sand on the Earth? Discover if you have what it takes to shine like a star in our quiz about the cosmos and get a maximum score!"
      },
@@ -25,7 +25,7 @@ const categoriesWithImages = [
       description:"Is it true that tears fly upward in space, and astronauts grow taller? See if you can tell fact from fiction in this quiz! Test your knowledge and discover fascinating facts about humanity's adventures beyond the Earth!"
      },
      {
-      name:"How Good Are You at Stargazing?🌠",
+      name:"Stargazing Skills 🌠",
       image:"https://cdn.pixabay.com/photo/2020/09/20/07/24/iceland-5586225_640.jpg",
       description:"This quiz will test your practical skills in night sky observation. Are you just a newbie stargazer or an almighty Astro Maestro? Let's find out!"
      }

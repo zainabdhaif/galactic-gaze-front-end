@@ -99,7 +99,7 @@ const questions = [
     question:"All the Solar System planets have moons.",
     options: ["True", "False"],
     answer: "False",
-    category: "Astronomy Facts: True or False? 🌌",
+    category: "Astronomy Facts 🌌",
     Image:"https://cdn.pixabay.com/photo/2023/05/20/15/03/moon-8006703_1280.jpg",
 
 }, 
@@ -107,7 +107,7 @@ const questions = [
     question:"There are more stars in the Universe than grains of sand on all of the Earth’s beaches.",
     options: ["True", "False"],
     answer: "True",
-    category: "Astronomy Facts: True or False? 🌌",
+    category: "Astronomy Facts 🌌",
     Image:"https://cdn.pixabay.com/photo/2021/01/10/18/01/milky-way-5905903_1280.jpg",
 
 },
@@ -115,7 +115,7 @@ const questions = [
     question:"Planets, stars, and galaxies comprise only 5% of all the matter in the Universe.",
     options: ["True", "False"],
     answer: "True",
-    category: "Astronomy Facts: True or False? 🌌",
+    category: "Astronomy Facts 🌌",
     Image:"https://cdn.pixabay.com/photo/2016/11/29/08/58/astronomy-1868560_1280.jpg",
 
 },
@@ -123,7 +123,7 @@ const questions = [
     question:"The phases of the Moon are caused by the Earth's shadow.",
     options: ["True", "False"],
     answer: "False",
-    category: "Astronomy Facts: True or False? 🌌",
+    category: "Astronomy Facts 🌌",
     Image:"https://i0.wp.com/www.sciencenews.org/wp-content/uploads/2021/11/111721_mt_quasisatellite_feat.jpg?fit=1030%2C580&ssl=1",
 
 },
@@ -131,7 +131,7 @@ const questions = [
     question:"Mercury, the closest planet to the Sun, is also the hottest planet in the Solar System.",
     options: ["True", "False"],
     answer: "False",
-    category: "Astronomy Facts: True or False? 🌌",
+    category: "Astronomy Facts 🌌",
     Image:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Solar_System_true_color.jpg/1200px-Solar_System_true_color.jpg",
 
 },
@@ -211,7 +211,7 @@ const questions = [
     question:"There's a sudden streak of light across the sky. What did you likely witness?",
     options:["Meteor","Comet","Asteroid"],
     answer:"Meteor",
-    category:"How Good Are You at Stargazing?🌠",
+    category:"Stargazing Skills 🌠",
     Image:"https://cdn.pixabay.com/photo/2023/10/10/11/28/star-trails-8306233_1280.jpg",
 
 },
@@ -219,7 +219,7 @@ const questions = [
     question:"You observe a pale band of light stretching across the night sky from horizon to horizon. What is it?",
     options:["Milky Way","Andromeda Galaxy","Orion Nebula"],
     answer:"Milky Way",
-    category:"How Good Are You at Stargazing?🌠",
+    category:"Stargazing Skills 🌠",
     Image:"https://cdn.pixabay.com/photo/2020/04/17/07/36/milky-way-5053626_1280.jpg",
 
 },
@@ -227,7 +227,7 @@ const questions = [
     question:"You notice a rhythmically blinking object moving across the sky. What could this be?",
     options:["Satellite","Airplane","Comet"],
     answer:"Airplane",
-    category:"How Good Are You at Stargazing?🌠",
+    category:"Stargazing Skills 🌠",
     Image:"https://c02.purpledshub.com/uploads/sites/48/2021/02/night-sky-object-in-motion-f451229.jpg?w=1029&webp=1",
 
 },
@@ -235,7 +235,7 @@ const questions = [
     question:"You're trying to observe a faint object in the night sky. What technique can you use to see it better?",
     options:["Look slightly away from the object","Stare directly at the object","Close one eye"],
     answer:"Look slightly away from the object",
-    category:"How Good Are You at Stargazing?🌠",
+    category:"Stargazing Skills 🌠",
     Image:"https://cdn.pixabay.com/photo/2017/03/27/13/38/canyon-2178786_1280.jpg",
 
 },
@@ -243,7 +243,7 @@ const questions = [
     question:"You see a bright yellowish dot that doesn’t twinkle. What object is it?",
     options:["Jupiter","Venus","Mars"],
     answer:"Jupiter",
-    category:"How Good Are You at Stargazing?🌠",
+    category:"Stargazing Skills 🌠",
     Image:"https://cdn.pixabay.com/photo/2020/02/22/08/15/space-4869815_1280.jpg",
 
 }
