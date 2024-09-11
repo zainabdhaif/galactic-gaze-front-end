@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import BookingList from "../BookingList/BookingList";
 import bookingService from "../../services/bookingService";
+import "./MeetupList.css";
 
 const MeetupList = () => {
   const [meetups, setMeetups] = useState([]);
@@ -39,6 +40,7 @@ const MeetupList = () => {
         }
       }
     };
+
     fetchBookings();
   }, [user]);
 
@@ -62,7 +64,7 @@ const MeetupList = () => {
 
     if (result.isConfirmed) {
       try {
-        await meetupService.deleteEvent(meetupID);
+        await meetupService.deleteEvent(meetupID); // Assuming deleteEvent is an async function
         Swal.fire("Deleted!", "The meetup has been deleted.", "success");
         navigate("/meetups");
         // Consider removing the need to reload the page
@@ -99,7 +101,7 @@ const MeetupList = () => {
 
   return (
     <>
-      {user && bookings.length > 0 ? (
+    {user && bookings.length > 0 ? (
         <BookingList bookings={bookings} />
       ) : null}
       <div className="container mt-4">
@@ -111,7 +113,7 @@ const MeetupList = () => {
                 <div className="card">
                   <img
                     src={meetup.eventid.image}
-                    alt={meetup.eventid.name}
+                    alt={meetup.eventid.image}
                     className="card-img-top"
                   />
                   <div className="card-body">
@@ -167,11 +169,11 @@ const MeetupList = () => {
                 <hr />
               </div>
             ))
-          ) : (
+        ) : (
             <h3 className="text-center mb-3 pb-3">No meetups available</h3>
-          )}
-        </div>
-      </div>
+        )}
+    </div>
+</div>
     </>
   );
 };

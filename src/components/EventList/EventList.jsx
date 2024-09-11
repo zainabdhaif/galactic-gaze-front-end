@@ -43,22 +43,23 @@ const EventList = () => {
       </p>
       <hr />
       <div className="video-container mb-4">
-        <video className="video" controls autoPlay loop>
-          <source src="path-to-your-video.mp4" type="video/mp4" />
+        <video className="video controls autoPlay loop" src="path-to-your-video.mp4" type="video/mp4" autoPlay muted loop>
+           
           Your browser does not support the video tag.
         </video>
       </div>
       <hr />
 
-      <div className="mb-4">
-        <input
-          type="text"
-          className="form-control search"
-          placeholder="Explore Events By Name or Date"
-          value={searchTerm}
-          onChange={handleSearchChange}
-        />
-      </div>
+      <div className="mb-4 position-relative">
+  <input
+    type="text"
+    className="form-control search"
+    placeholder="Explore Events By Name or Date"
+    value={searchTerm}
+    onChange={handleSearchChange}
+  />
+  <i className="fas fa-search search-icon"></i>
+</div>
 
       {events.length === 0 ? (
         <div className="alert alert-info text-center">
