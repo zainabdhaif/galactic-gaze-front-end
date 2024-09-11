@@ -23,6 +23,7 @@ import EditObservation from "./components/EditObservation/EditObservation";
 import EventForm from './components/EventForm/EventForm';
 import EventEdit from './components/EventEdit/EventEdit';
 import Quiz from './components/Quiz/Quiz';
+import UniversePage from './components/UniversePage/UniversePage';
 
 
 const App = () => {
@@ -34,6 +35,7 @@ const App = () => {
   const handleSignout = () => {
     authService.signout();
     setUser(null);
+    navigate("/");
   };
 
   const handleRemoveEvent = async (eventId) => {
@@ -95,6 +97,7 @@ const App = () => {
             path="/events/:eventId/observations/new"
             element={<ObservationForm />}
           />
+          <Route path="/universe" element={<UniversePage />} />
           <Route path="/mysky" element={<MySky />} />
           <Route path="/observations/:id" element={<ObservationDetails />} />
           <Route path="/observations/edit/:id" element={<EditObservation />} />
