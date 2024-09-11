@@ -8,58 +8,59 @@
   font-size: 25px;
 }
 
-.dot{
+.dot {
   color: purple;
   font-size: 40px;
 }
 
 .navbar {
-    background-color: black; 
-  }
-  
+  background-color: black;
+  transition: background-color 0.3s ease; 
+  position: sticky;
+  top: 0;
+  z-index: 1000; }
 
-  .navbar-brand {
-    color: #f8f9fa; 
-  }
-  
-  .navbar-brand:hover {
-    color: #8e44ad; 
-    transition: 0.3s ease;
-  }
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.8); 
+}
 
-  .navbar-brand:focus {
-    color: white; 
-  }
-  
-  div.container-fluid{
-    align-items: baseline !important;
-  }
+.navbar-brand {
+  color: #f8f9fa;
+}
 
-  ul.navbar-nav{
-    align-items: center;
-  }
- 
-  .navbar-nav .nav-link {
-    color: #f8f9fa; 
-  }
-  
+.navbar-brand:hover {
+  color: #8e44ad;
+  transition: 0.3s ease;
+}
 
-  .navbar-nav .nav-link:hover {
-    color: #8e44ad; 
-  }
-  
+.navbar-brand:focus {
+  color: white;
+}
 
-  .navbar-toggler {
-    border-color: #8e44ad; 
-  }
-  
+div.container-fluid {
+  align-items: baseline !important;
+}
 
-  .navbar-toggler:hover {
-    background-color: #8e44ad; 
-  }
-  
+ul.navbar-nav {
+  align-items: center;
+}
 
-  .navbar-nav .nav-link.active {
-    color: #e9ecef; 
-  }
-  
+.navbar-nav .nav-link {
+  color: #f8f9fa;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #8e44ad;
+}
+
+.navbar-toggler {
+  border-color: #8e44ad;
+}
+
+.navbar-toggler:hover {
+  background-color: #8e44ad;
+}
+
+.navbar-nav .nav-link.active {
+  color: #e9ecef;
+}
