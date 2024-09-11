@@ -163,7 +163,7 @@ body {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: black; 
+    background-color: white; 
     color: #8e44ad; 
     cursor: pointer;
     font-size: 16px;
@@ -171,7 +171,7 @@ body {
   }
   
   .learn-button:hover {
-    background-color: white; 
+    background-color: black; 
   }
 
  

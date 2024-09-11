@@ -104,3 +104,7 @@
   border-radius: 10px;
   padding: 20px;
 }
+
+.linkObs {
+  text-decoration: none;
+}
