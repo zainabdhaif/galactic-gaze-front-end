@@ -1,40 +1,46 @@
 import meetupService from "../../services/meetupService";
 import { useState, useEffect } from "react";
 import authService from "../../services/authService";
-import { Link, useFetcher } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 import BookingList from "../BookingList/BookingList";
 import bookingService from "../../services/bookingService";
 
 const MeetupList = () => {
   const [meetups, setMeetups] = useState([]);
   const [bookings, setBookings] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const user = authService.getUser();
   const navigate = useNavigate();
 
   useEffect(() => {
     const getMeetups = async () => {
-      const meetupData = await meetupService.index();
-      setMeetups(meetupData);
+      try {
+        const meetupData = await meetupService.index();
+        setMeetups(meetupData);
+      } catch (error) {
+        console.error("Error fetching meetups:", error);
+      } finally {
+        setLoading(false);
+      }
     };
     getMeetups();
   }, []);
 
   useEffect(() => {
     const fetchBookings = async () => {
-      try {
-        const id = user.id;
-        const userBookings = await bookingService.index(id);
-        setBookings(userBookings);
-      } catch (error) {
-        console.error("Error fetching meetups:", error);
+      if (user && user.id) {
+        try {
+          const userBookings = await bookingService.index(user.id);
+          setBookings(userBookings);
+        } catch (error) {
+          console.error("Error fetching bookings:", error);
+        }
       }
     };
-
-    fetchBookings(); // Add a semicolon here
-  }, [user.id]);
+    fetchBookings();
+  }, [user]);
 
   const formatDateTime = (datetime) => {
     const date = new Date(datetime);
@@ -42,6 +48,8 @@ const MeetupList = () => {
   };
 
   const handleDelete = async (meetupID) => {
+    if (!user || user.type !== "club") return; // Ensure only clubs can delete
+
     const result = await Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -54,10 +62,12 @@ const MeetupList = () => {
 
     if (result.isConfirmed) {
       try {
-        await meetupService.deleteEvent(meetupID); // Assuming deleteEvent is an async function
+        await meetupService.deleteEvent(meetupID);
         Swal.fire("Deleted!", "The meetup has been deleted.", "success");
         navigate("/meetups");
-        location.reload();
+        // Consider removing the need to reload the page
+        // Instead, update the state to remove the deleted meetup
+        setMeetups(meetups.filter(meetup => meetup._id !== meetupID));
       } catch (error) {
         console.error("Error deleting meetup:", error);
         Swal.fire("Error!", "There was an error deleting the meetup.", "error");
@@ -65,28 +75,33 @@ const MeetupList = () => {
     }
   };
 
-  if (!meetups) <h3>Loading...</h3>;
-
   const handleBooking = async (meetupID) => {
+    if (!user || user.type !== "user") return; // Ensure only users can book
+
     try {
       const bookingData = {
         userid: user.id,
         meetupid: meetupID,
       };
       await bookingService.create(bookingData);
-      console.log(bookingData);
+      Swal.fire("Booked!", "The meetup has been booked.", "success");
       navigate("/meetups");
-      location.reload();
+      // Consider removing the need to reload the page
+      // Instead, update the state to include the new booking
+      setBookings([...bookings, bookingData]);
     } catch (error) {
       console.error("Error creating booking:", error);
+      Swal.fire("Error!", "There was an error creating the booking.", "error");
     }
   };
 
+  if (loading) return <h3>Loading...</h3>;
+
   return (
     <>
-       {bookings.length > 0 ? (
-          <BookingList bookings= {bookings}/>
-    ) : (<p></p>)}
+      {user && bookings.length > 0 ? (
+        <BookingList bookings={bookings} />
+      ) : null}
       <div className="container mt-4">
         <h1 className="text-center mb-4">Upcoming Astro Gatherings</h1>
         <div className="row">
@@ -96,7 +111,7 @@ const MeetupList = () => {
                 <div className="card">
                   <img
                     src={meetup.eventid.image}
-                    alt={meetup.eventid.image}
+                    alt={meetup.eventid.name}
                     className="card-img-top"
                   />
                   <div className="card-body">
