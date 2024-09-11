@@ -11,9 +11,9 @@ const MySky = () => {
 
   useEffect(() => {
     const fetchObservations = async () => {
+      setLoading(true);
       try {
-        const id = user.id;
-        const userObservations = await observationService.index(id); 
+        const userObservations = await observationService.index(user.id);
         setObservations(userObservations);
       } catch (error) {
         console.error("Error fetching observations:", error);
@@ -26,17 +26,20 @@ const MySky = () => {
   }, [user.id]);
 
   if (loading) {
-    return <h1 className="loading-text">Loading observations...</h1>;
+    return (
+      <main className="container mt-4">
+        <h3>Loading...</h3>
+      </main>
+    );
   }
 
   return (
-    <div className="container mysky-container">
-      <h2 className="mysky-header">{user.username}'s Observations</h2>
-      {observations.length === 0 ? (
-        <p className="no-observations-text">No observations found.</p>
-      ) : (
-        <div className="row mysky-observation-row">
-          {observations.map((observation) => (
+    <main className="container mysky-container mt-4">
+      <h2 className="display-4">{user.username}'s Observations</h2>
+
+      <div className="row mysky-observation-row">
+        {observations.length > 0 ? (
+          observations.map((observation) => (
             <div key={observation._id} className="col-md-4 mysky-observation-col">
               <div className="card mysky-observation-card">
                 {observation.image && (
@@ -56,10 +59,12 @@ const MySky = () => {
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-      )}
-    </div>
+          ))
+        ) : (
+          <p>No observations found.</p>
+        )}
+      </div>
+    </main>
   );
 };
 

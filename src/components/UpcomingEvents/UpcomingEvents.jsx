@@ -1,13 +1,17 @@
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // Ensure Bootstrap JS is imported
+import React from 'react';
 import { Link } from 'react-router-dom';
+import './upcomingEvents.css';
 
 const UpcomingEvents = ({ cards }) => {
   return (
     <section className="upcoming-events">
       <h2>Upcoming Events</h2>
       <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
+        
         <div className="carousel-indicators">
+          
           {cards.slice(0, 4).map((event, index) => (
             <button
               key={index}
@@ -26,7 +30,7 @@ const UpcomingEvents = ({ cards }) => {
             <Link to={`/events/${event._id}`}>
               <img src={event.image} className="d-block w-100" alt={event.title} />
               <div className="carousel-caption d-none d-md-block">
-                <h5>{event.title}</h5>
+                <h5>{event.name}</h5>
                 <p>{event.description}</p>
               </div>
               </Link>

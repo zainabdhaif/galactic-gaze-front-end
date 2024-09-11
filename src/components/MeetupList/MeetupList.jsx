@@ -115,22 +115,25 @@ const MeetupList = () => {
                       user.type === "user" ? (
                         <button className="btn btn-primary" onClick={() => handleBooking(meetup._id)}>Book Now</button>
                       ) : user.type === "club" ? (
-                        <>
-                          <Link
-                            key={meetup._id}
-                            to={meetup._id}
-                            className="btn btn-primary me-2"
-                          >
-                            Edit
-                          </Link>
-
-                          <button
-                            className="btn btn-danger"
-                            onClick={() => handleDelete(meetup._id)}
-                          >
-                            Delete
-                          </button>
-                        </>
+                        <div className="row">
+                          <div className="col-6">
+                            <Link
+                              key={meetup._id}
+                              to={meetup._id}
+                              className="btn btn-primary p-2 m-0"
+                            >
+                              Edit
+                            </Link>
+                          </div>
+                          <div className="col-6">
+                            <button
+                              className="btn btn-danger p-2 m-0"
+                              onClick={() => handleDelete(meetup._id)}
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </div>
                       ) : null
                     ) : null}
                   </div>

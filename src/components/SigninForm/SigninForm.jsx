@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import authService from '../../services/authService.js';
+import './SigninForm.css';
 
 const SigninForm = (props) => {
   const navigate = useNavigate();
-  const [message, setMessage] = useState(['']);
+  const [message, setMessage] = useState();
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -32,10 +33,10 @@ const SigninForm = (props) => {
   };
 
   return (
-    <main className="container mt-5">
+    <main className="container-signin mt-5">
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <h1 className="text-center mb-4">Log In</h1>
+          <h1 className="text-center mb-4 ">Log In</h1>
           {message && <div className="alert alert-danger">{message}</div>}
           <form autoComplete="off" onSubmit={handleSubmit}>
             <div className="mb-3">
@@ -60,11 +61,19 @@ const SigninForm = (props) => {
                 onChange={handleChange}
               />
             </div>
-            <div className="d-flex justify-content-between">
-              <button type="submit" className="btn btn-primary">Log In</button>
-              <Link to="/">
-                <button type="button" className="btn btn-secondary">Cancel</button>
-              </Link>
+            <div className="row flex-fill">
+              <div className="col">
+                <button type="submit" className="btn btn-primary w-100 m-0 mt-2 p-2">
+                  Sign In
+                </button>
+              </div>
+              <div className="col">
+                <Link to="/" className='flex-fill'>
+                  <button type="button" className="btn btn-secondary w-100 m-0 mt-2 p-2">
+                    Cancel
+                  </button>
+                </Link>
+              </div>
             </div>
           </form>
         </div>

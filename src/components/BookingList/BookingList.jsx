@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import bookingService from "../../services/bookingService";
 import {useNavigate } from 'react-router-dom';
+import './BookingList.css'; // Adjust the path as necessary
 
 const BookingList = (props) => {
     const navigate = useNavigate();
@@ -19,6 +20,8 @@ const BookingList = (props) => {
     }
 
     return (
+        <>
+        <h2>My bookings:</h2>
         <div className="bookings-index">
             {props.bookings.map((booking) => (
                 <div key={booking._id}>
@@ -29,6 +32,7 @@ const BookingList = (props) => {
                 </div>
             ))}
         </div>
+        </>
     );
 };
 
