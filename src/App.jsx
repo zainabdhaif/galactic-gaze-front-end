@@ -7,7 +7,7 @@ import './App.css';
 import Swal from 'sweetalert2';
 
 import NavBar from "./components/NavBar/NavBar";
-import Landing from "./components/Landing/Landing";
+import About from "./components/About/About";
 import Dashboard from "./components/Home/Home";
 import SignupForm from "./components/SignupForm/SignupForm";
 import SigninForm from "./components/SigninForm/SigninForm";
@@ -98,9 +98,11 @@ const App = () => {
           <Route path="/mysky" element={<MySky />} />
           <Route path="/observations/:id" element={<ObservationDetails />} />
           <Route path="/observations/edit/:id" element={<EditObservation />} />
-          <Route path="/quiz" element={<Quiz />} />   
+          <Route path="/quiz" element={<Quiz />} />  
+          <Route path="/about" element={<About />} /> 
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 };

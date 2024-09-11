@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import observationService from "../../services/observationService";
 import auth from "../../services/authService";
 import Swal from 'sweetalert2'; 
-import './EditObservation.css';  // Make sure this CSS file exists
+import './EditObservation.css';  
 
 const EditObservation = () => {
   const user = auth.getUser();
