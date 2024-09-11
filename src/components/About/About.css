@@ -1,0 +1,18 @@
+
+
+  .container-about {
+    position: relative;
+    max-width: 800px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background: rgba(42, 42, 42, 0.8); 
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+   li {
+    color: #ccc; 
+  }
