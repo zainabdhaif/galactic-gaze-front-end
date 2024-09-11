@@ -9,9 +9,8 @@ const EventDetails = (props) => {
   const [event, setEvent] = useState(null);
   const navigate = useNavigate();
   const user = authService.getUser();
-//   const { id } = useParams();
-  const [observation, setObservation] = useState(null);
-  const [loading, setLoading] = useState(true);
+  // const [observation, setObservation] = useState(null);
+  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getEvent() {

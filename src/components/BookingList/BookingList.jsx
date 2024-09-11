@@ -11,15 +11,6 @@ const BookingList = (props) => {
         console.log(props.bookings); 
     }, [props.bookings]);
 
-    // const handleDelete = async (bookingID) => {
-    //     try{
-    //         await bookingService.remove(bookingID);
-    //         navigate('/meetups'); 
-    //         location.reload();
-    //     }catch(error){
-    //     console.error("Error deleting booking:", error)
-    //     }
-    // }
     const handleDelete = async (bookingID) => {
       
         const result = await Swal.fire({
@@ -34,10 +25,8 @@ const BookingList = (props) => {
       
         if (result.isConfirmed) {
           try {
-            await bookingService.remove(bookingID); // Assuming remove is an async function
+            await bookingService.remove(bookingID);
             Swal.fire("Deleted!", "The booking has been deleted.", "success");
-      
-            // Update the bookings state by filtering out the deleted booking
             setBookings(bookings.filter(booking => booking._id !== bookingID));
           } catch (error) {
             console.error("Error deleting booking:", error);

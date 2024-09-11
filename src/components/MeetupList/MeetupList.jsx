@@ -77,24 +77,6 @@ const MeetupList = () => {
     }
   };
 
-  // const handleBooking = async (meetupID) => {
-  //   if (!user || user.type !== "user") return;
-
-  //   try {
-  //     const bookingData = {
-  //       userid: user.id,
-  //       meetupid: meetupID,
-  //     };
-  //     await bookingService.create(bookingData);
-  //     navigate("/meetups");
-      
-  //     setBookings([...bookings, bookingData]);
-  //     location.reload();
-  //   } catch (error) {
-  //     console.error("Error creating booking:", error);
-  //     Swal.fire("Error!", "There was an error creating the booking.", "error");
-  //   }
-  // };
   const handleBooking = async (meetupID) => {
     // Ensure the user is logged in and has the appropriate type
     if (!user || user.type !== "user") {
