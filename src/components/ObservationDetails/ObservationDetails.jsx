@@ -3,12 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import observationService from "../../services/observationService";
 import Swal from 'sweetalert2';
 import './ObservationDetails.css'; 
-
+import authService from '../../services/authService';
 
 const ObservationDetails = () => {
   const { id } = useParams();
   const [observation, setObservation] = useState(null);
   const [loading, setLoading] = useState(true);
+const user = authService.getUser();
 
   const navigate = useNavigate();
 
@@ -97,10 +98,13 @@ const ObservationDetails = () => {
             </div>
           </div>
         </div>
+       {user.id === observation.userid && 
+
         <div className="button-container mt-4">
           <button className="btn primary" onClick={handleEdit}>Edit</button>
           <button className="btn btn-danger" onClick={handleDelete}>Delete</button>
         </div>
+}
       </main>
 
     {/* <div className="obs-container">
