@@ -35,7 +35,7 @@ const MySky = () => {
 
   return (
     <main className="container mysky-container mt-4">
-      <h2 className="display-4">{user.username}'s Observations</h2>
+      <h2 className="display-4">{user.name}'s Observations</h2>
 
       <div className="row mysky-observation-row">
         {observations.length > 0 ? (
