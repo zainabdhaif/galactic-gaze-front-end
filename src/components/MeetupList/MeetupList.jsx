@@ -83,7 +83,10 @@ const MeetupList = () => {
 
   return (
     <>
-    <BookingList bookings= {bookings}/>
+    {bookings.length > 0 ? (
+          <BookingList bookings= {bookings}/>
+    ) : (<p></p>)}
+
       <div className="container mt-4">
         <h1 className="text-center mb-4">Upcoming Astro Gatherings</h1>
         <div className="row">

@@ -31,7 +31,6 @@ const UpcomingEvents = ({ cards }) => {
               <img src={event.image} className="d-block w-100" alt={event.title} />
               <div className="carousel-caption d-none d-md-block">
                 <h5>{event.name}</h5>
-                <p>{event.description}</p>
               </div>
               </Link>
             </div>
