@@ -10,8 +10,6 @@ const MeetupForm = () => {
   const [event, setEvent] = useState({});
   const navigate = useNavigate();
 
-  // console.log("event", eventid, "meetup", meetupid);
-
   useEffect(() => {
     if (meetupid) {
       const getMeetup = async () => {
@@ -42,21 +40,6 @@ const MeetupForm = () => {
     setMeetup((prevState) => ({ ...prevState, [name]: value }));
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     if (meetupid) {
-  //       await meetupService.update(meetupid, meetup);
-  //       navigate("/meetups");
-  //     } else if (eventid) {
-  //       await meetupService.add(eventid, meetup);
-  //       console.log(eventid, meetup);
-  //       navigate("/meetups");
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -72,7 +55,6 @@ const MeetupForm = () => {
           navigate("/meetups");
         });
       } else {
-        // Add a new event (assuming you have a method for that)
         await meetupService.add(eventid, meetup);
         Swal.fire({
           title: 'Meetup Created!',

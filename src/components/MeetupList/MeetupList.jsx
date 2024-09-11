@@ -50,7 +50,7 @@ const MeetupList = () => {
   };
 
   const handleDelete = async (meetupID) => {
-    if (!user || user.type !== "club") return; // Ensure only clubs can delete
+    if (!user || user.type !== "club") return;
 
     const result = await Swal.fire({
       title: "Are you sure?",
@@ -64,7 +64,7 @@ const MeetupList = () => {
 
     if (result.isConfirmed) {
       try {
-        await meetupService.deleteEvent(meetupID); // Assuming deleteEvent is an async function
+        await meetupService.deleteEvent(meetupID);
         Swal.fire("Deleted!", "The meetup has been deleted.", "success");
         location.reload();
         navigate("/meetups");
@@ -78,13 +78,10 @@ const MeetupList = () => {
   };
 
   const handleBooking = async (meetupID) => {
-    // Ensure the user is logged in and has the appropriate type
     if (!user || user.type !== "user") {
       Swal.fire("Unauthorized", "You need to be logged in as a user to book.", "error");
       return;
     }
-  
-    // Confirm the booking action with the user
     const result = await Swal.fire({
       title: "Confirm Booking",
       text: "Do you want to book this meetup?",
