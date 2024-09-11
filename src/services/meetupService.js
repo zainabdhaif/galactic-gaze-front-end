@@ -8,7 +8,7 @@ const add = async (eventid, formData) => {
                 Authorization: `Bearer ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({...formData, eventid })
+            body: JSON.stringify({ ...formData, eventid })
         });
         return res.json();
     } catch (error) {
@@ -24,6 +24,11 @@ const index = async () => {
                 'Content-Type': 'application/json',
             }
         });
+
+        if (!res.ok) {
+            return [];
+        }
+
         return res.json();
     } catch (error) {
         console.error(error);
