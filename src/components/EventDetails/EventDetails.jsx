@@ -101,7 +101,7 @@ const EventDetails = (props) => {
               <div className="card-obs" key={index}>
                 <div className="card-header">
                   <img src={observation.image} className="card-top" alt="Observation" />
-                  <h5 className="card-title">Observation {index + 1}</h5>
+                  <h5 className="card-title">{observation.userid.name}'s Observation</h5>
                 </div>
                 <div className="card-body-obs">
                   <p className="card-text"><strong>Notes:</strong> {observation.notes}</p>

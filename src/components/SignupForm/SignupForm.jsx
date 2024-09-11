@@ -6,6 +6,7 @@ const SignupForm = (props) => {
   const navigate = useNavigate();
   const [message, setMessage] = useState();
   const [formData, setFormData] = useState({
+    name: '', 
     username: '',
     password: '',
     passwordConf: '',
@@ -35,10 +36,10 @@ const SignupForm = (props) => {
     }
   };
 
-  const { username, password, passwordConf } = formData;
+  const { name, username, password, passwordConf } = formData;
 
   const isFormInvalid = () => {
-    return !(username && password && password === passwordConf);
+    return !(name && username && password && password === passwordConf);
   };
 
   return (
@@ -49,6 +50,18 @@ const SignupForm = (props) => {
           {message && <div className="alert alert-danger">{message}</div>}
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
+              <label htmlFor="name" className="form-label">Name:</label>
+              <input
+                type="text"
+                className="form-control"
+                id="name"
+                value={name}
+                name="name"
+                onChange={handleChange}
+                required 
+              />
+            </div>
+            <div className="mb-3">
               <label htmlFor="username" className="form-label">Username:</label>
               <input
                 type="text"
@@ -57,6 +70,7 @@ const SignupForm = (props) => {
                 value={username}
                 name="username"
                 onChange={handleChange}
+                required 
               />
             </div>
             <div className="mb-3">
@@ -68,6 +82,7 @@ const SignupForm = (props) => {
                 value={password}
                 name="password"
                 onChange={handleChange}
+                required 
               />
             </div>
             <div className="mb-3">
@@ -79,16 +94,19 @@ const SignupForm = (props) => {
                 value={passwordConf}
                 name="passwordConf"
                 onChange={handleChange}
+                required 
               />
             </div>
             <div className="row flex-fill">
               <div className="col">
+
               <button type="submit" className="btn btn-primary w-100 m-0 mt-2 p-2">Sign Up</button>
+
               </div>
               <div className="col">
-              <Link to="/">
-                <button type="button" className="btn btn-secondary w-100 m-0 mt-2 p-2">Cancel</button>
-              </Link>
+                <Link to="/">
+                  <button type="button" className="btn btn-secondary w-100 m-0 mt-2 p-2">Cancel</button>
+                </Link>
               </div>
             </div>
           </form>
