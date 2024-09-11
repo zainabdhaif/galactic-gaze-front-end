@@ -103,36 +103,6 @@ const ObservationDetails = () => {
         </div>
       </main>
 
-    {/* <div className="obs-container">
-      <h2 className="obs-header">{observation.eventid.name}'s Observation Details</h2>
-
-      <div className="obs-info-container">
-        <div className="obs-event-info">
-          <h5><strong>{observation.eventid.name}</strong></h5>
-          <p><strong>Date & Time:</strong> {new Date(observation.eventid.datetime).toLocaleString()}</p>
-          <p><strong>Location:</strong> {observation.eventid.location}</p>
-          <p><strong>Coordinates:</strong> {observation.eventid.coordinates}</p>
-        </div>
-
-        <div className="obs-observation-info">
-          <div className="obs-image-container">
-          {observation.image && (
-            <img 
-            src={observation.image} 
-            alt="Observation" 
-            className="obs-image" 
-            />
-          )}
-          </div>
-          <p className="obs-notes"><strong>Notes:</strong> {observation.notes}</p>
-          <p><strong>Visibility:</strong> {observation.visibility}</p>
-        </div>
-      </div>
-
-      <div className="obs-button-container">
-        <button className="obs-edit-btn" onClick={handleEdit}>Edit</button>
-        <button className="obs-delete-btn" onClick={handleDelete}>Delete</button>
-      </div> */}
 
     </div>
   );

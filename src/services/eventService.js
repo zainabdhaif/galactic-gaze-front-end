@@ -46,7 +46,7 @@ const deleteEvent = async (eventId) => {
         'Authorization': `Bearer ${localStorage.getItem('token')}`,
       },
     });
-    
+    return res.json();
   
   } catch (error) {
     console.error('Error:', error);

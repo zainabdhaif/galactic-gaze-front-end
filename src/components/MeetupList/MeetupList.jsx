@@ -1,12 +1,16 @@
 import meetupService from "../../services/meetupService";
 import { useState, useEffect } from "react";
 import authService from "../../services/authService";
-import { Link } from "react-router-dom";
+import { Link, useFetcher } from "react-router-dom";
 import Swal from 'sweetalert2';
 import {useNavigate } from 'react-router-dom';
+import BookingList from "../BookingList/BookingList";
+import bookingService from "../../services/bookingService";
 
 const MeetupList = () => {
   const [meetups, setMeetups] = useState([]);
+  const [bookings, setBookings] = useState([]);
+
   const user = authService.getUser();
   const navigate = useNavigate();
 
@@ -17,6 +21,20 @@ const MeetupList = () => {
     };
     getMeetups();
   }, []);
+
+  useEffect(() => {
+    const fetchBookings = async () => {
+      try {
+        const id = user.id;
+        const userBookings = await bookingService.index(id);
+        setBookings(userBookings);
+      } catch (error) {
+        console.error("Error fetching meetups:", error);
+      }
+    };
+    
+    fetchBookings(); // Add a semicolon here
+  }, [user.id]);
 
   const formatDateTime = (datetime) => {
     const date = new Date(datetime);
@@ -47,8 +65,25 @@ const MeetupList = () => {
     }
   };
 
+
+  const handleBooking = async (meetupID) => {
+   try{
+    const bookingData = {
+      userid: user.id,
+      meetupid: meetupID,
+    }
+    await bookingService.create(bookingData);
+    console.log(bookingData)
+    navigate('/meetups')
+    location.reload();
+   }catch (error){
+    console.error("Error creating booking:", error);
+   } 
+  }
+
   return (
     <>
+    <BookingList bookings= {bookings}/>
       <div className="container mt-4">
         <h1 className="text-center mb-4">Upcoming Astro Gatherings</h1>
         <div className="row">
@@ -78,7 +113,7 @@ const MeetupList = () => {
                   <div className="d-flex justify-content-between">
                     {user ? (
                       user.type === "user" ? (
-                        <button className="btn btn-primary">Book Now</button>
+                        <button className="btn btn-primary" onClick={() => handleBooking(meetup._id)}>Book Now</button>
                       ) : user.type === "club" ? (
                         <>
                           <Link
