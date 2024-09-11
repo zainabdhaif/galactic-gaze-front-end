@@ -66,9 +66,9 @@ const MeetupList = () => {
       try {
         await meetupService.deleteEvent(meetupID); // Assuming deleteEvent is an async function
         Swal.fire("Deleted!", "The meetup has been deleted.", "success");
+        location.reload();
         navigate("/meetups");
-        // Consider removing the need to reload the page
-        // Instead, update the state to remove the deleted meetup
+
         setMeetups(meetups.filter(meetup => meetup._id !== meetupID));
       } catch (error) {
         console.error("Error deleting meetup:", error);
@@ -78,22 +78,39 @@ const MeetupList = () => {
   };
 
   const handleBooking = async (meetupID) => {
-    if (!user || user.type !== "user") return; // Ensure only users can book
-
-    try {
-      const bookingData = {
-        userid: user.id,
-        meetupid: meetupID,
-      };
-      await bookingService.create(bookingData);
-      Swal.fire("Booked!", "The meetup has been booked.", "success");
-      navigate("/meetups");
-      // Consider removing the need to reload the page
-      // Instead, update the state to include the new booking
-      setBookings([...bookings, bookingData]);
-    } catch (error) {
-      console.error("Error creating booking:", error);
-      Swal.fire("Error!", "There was an error creating the booking.", "error");
+    // Ensure the user is logged in and has the appropriate type
+    if (!user || user.type !== "user") {
+      Swal.fire("Unauthorized", "You need to be logged in as a user to book.", "error");
+      return;
+    }
+  
+    // Confirm the booking action with the user
+    const result = await Swal.fire({
+      title: "Confirm Booking",
+      text: "Do you want to book this meetup?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#6a0dad",
+      cancelButtonColor: "#8b0000",
+      confirmButtonText: "Yes, book it!",
+      cancelButtonText: "No, cancel",
+    });
+  
+    if (result.isConfirmed) {
+      try {
+        const bookingData = {
+          userid: user.id,
+          meetupid: meetupID,
+        };
+        await bookingService.create(bookingData);
+        Swal.fire("Booked!", "Your booking has been confirmed.", "success");
+        setBookings([...bookings, bookingData]);
+        navigate("/meetups");
+        location.reload();
+      } catch (error) {
+        console.error("Error creating booking:", error);
+        Swal.fire("Error!", "There was an error creating the booking.", "error");
+      }
     }
   };
 
