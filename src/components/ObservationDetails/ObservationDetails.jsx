@@ -90,9 +90,9 @@ const user = authService.getUser();
 
           <div className="col-md-6">
             <div className="info-container p-4 rounded shadow-sm" style={{ border: '2px solid #6a0dad', width:'300px', height:'300px'  }}>
-              {observation.image && (
+              {/* {observation.image && (
                 <img src={observation.image} alt="Observation" className="img-fluid" />
-              )}
+              )} */}
               <p><strong>Notes:</strong> {observation.notes}</p>
               <p><strong>Visibility:</strong> {observation.visibility}</p>
             </div>
