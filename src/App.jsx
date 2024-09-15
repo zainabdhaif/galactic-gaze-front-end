@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import authService from "./services/authService";
 import eventService from "./services/eventService";
 import "./../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
 import './App.css';
 import Swal from 'sweetalert2';
 

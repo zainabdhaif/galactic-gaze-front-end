@@ -1,42 +1,101 @@
 .form-background {
-    position: relative;
-  }
-  
-  .background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
-  
+  position: relative;
+  min-height: 100vh;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.container-form {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  width: 90%;
+  margin: auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
+
+.info-container {
+  border: 2px solid #6a0dad;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.primary {
+  background-color: #6a0dad;
+  border-color: #6a0dad;
+  padding: 12px 20px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn-danger {
+  background-color: #8b0000;
+  border-color: #8b0000;
+  padding: 12px 20px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 768px) {
   .container-form {
-    position: relative;
-    z-index: 1;
+    width: 95%;
+    padding: 15px;
   }
-  
+
   .info-container {
-    border: 2px solid #6a0dad; 
-    background-color: rgba(0, 0, 0, 0.6); 
-    width: 100%;
+    padding: 15px;
   }
-  
-  .primary {
-    background-color: #6a0dad; 
-    border-color: #6a0dad;
-  }
-  
-  .btn-danger {
-    background-color: #8b0000;
-    border-color: #8b0000;
+
+  .primary, .btn-danger {
+    font-size: 14px;
+    padding: 10px 15px;
   }
 
   .button-container {
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 10px;
   }
-  
-  
+}
 
+@media (max-width: 480px) {
+  .container-form {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .info-container {
+    padding: 10px;
+  }
+
+  .primary, .btn-danger {
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  .button-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
