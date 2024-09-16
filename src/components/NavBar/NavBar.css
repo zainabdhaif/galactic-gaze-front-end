@@ -15,21 +15,23 @@
 
 .navbar {
   background-color: black;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
   position: sticky;
   top: 0;
-  z-index: 1000; }
-
-.navbar.scrolled {
-  background-color: transparent; 
+  z-index: 1000;
 }
 
-ul.hidden{
+.navbar.scrolled {
+  background-color: transparent;
+}
+
+ul.hidden {
   display: none;
 }
 
 .navbar-brand {
   color: #f8f9fa;
+  font-size: 1.5rem;
 }
 
 .navbar-brand:hover {
@@ -42,10 +44,13 @@ ul.hidden{
 }
 
 div.container-fluid {
+  display: flex;
+  justify-content: space-between;
   align-items: baseline !important;
 }
 
 ul.navbar-nav {
+  display: flex;
   align-items: center;
 }
 
@@ -59,6 +64,9 @@ ul.navbar-nav {
 
 .navbar-toggler {
   border-color: #8e44ad;
+  background-color: transparent;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 .navbar-toggler:hover {
@@ -67,4 +75,38 @@ ul.navbar-nav {
 
 .navbar-nav .nav-link.active {
   color: #e9ecef;
+}
+
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .navbar-toggler {
+    padding: 5px 15px;
+  }
+
+  ul.navbar-nav {
+    display: block;
+    text-align: center;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 10px 15px;
+    display: block;
+    width: 100%;
+    color: #f8f9fa;
+  }
+
+  .navbar-nav .nav-link:hover {
+    background-color: #6a0dad;
+    color: #fff;
+  }
+}
+
+@media (min-width: 769px) {
+  .navbar-collapse {
+    display: flex !important;
+    justify-content: flex-end;
+  }
 }
